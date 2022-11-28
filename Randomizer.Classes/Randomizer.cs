@@ -1,6 +1,6 @@
 ﻿namespace Randomizer.Classes
 {
-    public partial class Randomizer
+    public static partial class Randomizer
     {
     }
 }

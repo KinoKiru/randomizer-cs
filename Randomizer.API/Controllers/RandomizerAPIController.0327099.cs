@@ -4,22 +4,32 @@ namespace Randomizer.API.Controllers
 {
     public partial class RandomizerAPIController : ControllerBase
     {
+        /// <summary>returns date, uses default settings</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         [HttpGet("/date")]
-        public ActionResult<DateOnly> Index()
+        public IResult dateDefault()
         {
-            return Classes.Randomizer.GetRandomDate();
+            return Results.Ok(Classes.Randomizer.GetRandomDate().ToShortDateString());
         }
 
-        [HttpGet("/date/{startdate?}")]
-        public ActionResult<DateOnly> Index(DateOnly? startdate)
+        /// <summary>Date the with parameters.</summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        [HttpPost("/date")]
+        public IResult dateWithParameters(DateTime? startDate, DateTime? endDate)
         {
             try
             {
-                return Classes.Randomizer.GetRandomDate(((DateOnly)startdate).ToDateTime(TimeOnly.Parse("10:00 PM")));
+                return Results.Ok(Classes.Randomizer.GetRandomDate(startDate, endDate).ToShortDateString());
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return Results.Problem(ex.Message);
             }
 
         }

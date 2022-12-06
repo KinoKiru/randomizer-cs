@@ -48,13 +48,13 @@
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);
-                    }).catch((error) => $('#owo').text(error));
+                    }).catch((error) => $('#owo').text(error.statusText));
             } else {
                 $.get('http://localhost:5298/date')
                     .done(function (data) {
                         $('#owo').text(data.value);
                     console.log(data.value);
-                    }).catch((error) => $('#owo').text(error));
+                    }).catch((error) => $('#owo').text(error.statusText));
             }
             return false;
         }

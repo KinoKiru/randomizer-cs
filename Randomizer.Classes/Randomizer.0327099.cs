@@ -12,26 +12,36 @@
         {
             try
             {
-                if (endDate != null && startDate == null)
+                DateTime tempDateTime = startDate == null ? new DateTime(1900, 1, 1) : (DateTime)startDate;
+                if ((endDate != null && startDate < endDate) || endDate == null)
                 {
-                    throw new ArgumentException("eind datum mag niet later dan de start datum zijn");
-                }
-                if (startDate < endDate)
-                {
-                    DateTime tempDateTime = startDate == null ? new DateTime(1900, 1, 1) : (DateTime)startDate;
                     int range = ((endDate == null ? DateTime.Today : (DateTime)endDate) - tempDateTime).Days;
                     return tempDateTime.AddDays(rng.Next(range));
                 }
-                else
-                {
-                    throw new ArgumentException("eind datum mag niet later dan de start datum zijn");
-                }
-
+                throw new ArgumentException("Einddatum mag niet kleiner zijn dan startdatum");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        /// <summary>Gets the random int.</summary>
+        /// <param name="negative">if set to <c>true</c> [negative].</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public static int GetRandomInt(bool negative)
+        {
+            int owo = rng.Next((negative ? Int32.MinValue : 0), Int32.MaxValue);
+            //TODO if only negative if (negative)
+            //{
+            //    while (owo > 0)
+            //    {
+            //        owo = rng.Next((negative ? Int32.MinValue : 0), Int32.MaxValue);
+            //    }
+            //}
+            return owo;
         }
     }
 }

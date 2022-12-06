@@ -9,7 +9,7 @@ namespace Randomizer.Classes.Tests
         [TestMethod()]
         public void GetRandomDateTest()
         {
-            DateOnly owo = Randomizer.GetRandomDate();
+            DateTime owo = Randomizer.GetRandomDate();
             Console.Write(owo);
             Assert.IsNotNull(owo);
         }
@@ -17,7 +17,7 @@ namespace Randomizer.Classes.Tests
         [TestMethod()]
         public void GetRandomDateWithStartTest()
         {
-            DateOnly owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4));
+            DateTime owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4));
             Console.Write(owo);
             Assert.IsNotNull(owo);
         }
@@ -25,9 +25,23 @@ namespace Randomizer.Classes.Tests
         [TestMethod()]
         public void GetRandomDateWithStartAndEndTest()
         {
-            DateOnly owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4), new DateTime(2010, 9, 2));
+            DateTime owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4), new DateTime(2010, 9, 2));
             Console.Write(owo);
             Assert.IsNotNull(owo);
+        }
+
+        [TestMethod()]
+        public void GetRandomIntTest()
+        {
+            int owo = Randomizer.GetRandomInt(false);
+            Assert.IsNotNull(owo);
+        }
+
+        [TestMethod()]
+        public void getRandomNegativeTest()
+        {
+            int owo = Randomizer.GetRandomInt(true);
+            Assert.IsTrue(owo < 0);
         }
     }
 }

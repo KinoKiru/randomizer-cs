@@ -1,16 +1,65 @@
-﻿
-<h1>Random datum generator</h1>
-<small>genereer een random datum, als je start datum meegeeft is dat de minimale en end date is het maximale</small>
+﻿<div class="text-center mb-3">
+    <h1 class="mb-0">Random datum generator</h1>
+    <small>genereer een random datum, als je start datum meegeeft is dat de minimale en end date is het maximale</small>
+</div>
 
-<form action="/" method="post" class="form-floating d-flex justify-content-center">
-
-    <div class="form-floating d-inline-flex" style="width: 15em">
-        <input type="date" class="form-control" name="start" id="start" placeholder="start datum" />
-        <label for="start">start datum</label>
+<form method="get" onsubmit="return validate()" name="date" id="form" class="form-floating">
+    <div class="row justify-content-center">
+        <div class="form-floating me-4" style="width: 15em">
+            <input type="date" class="form-control" name="start" id="start" placeholder="start datum" />
+            <label for="start" class="ms-2">start datum</label>
+            <div class="valid-feedback">Valid.</div>
+            <div id="start_error" class="invalid-feedback">cannot be empty or lower if end date is filled in</div>
+        </div>
+        <div class="form-floating" style="width: 15em">
+            <input type="date" class="form-control" name="end" id="end" placeholder="eind datum" />
+            <label for="end" class="ms-2">eind datum</label>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
     </div>
-    <div class="form-floating d-inline-flex" style="width: 15em">
-        <input type="date" class="form-control" name="end" id="end" placeholder="eind datum" />
-        <label for="end">eind datum</label>
+    <div class="d-flex justify-content-center mt-3 row">
+        <button type="submit" class="btn btn-outline-dark" style="width: 39%">Submit</button>
     </div>
-   
 </form>
+
+<h1 id="owo" class="text-center mt-4"></h1>
+
+<script>
+    let form = document.forms["date"];
+    let startError = document.getElementById('start_error');
+
+    form['start'].addEventListener('change', () => {
+        form['start'].classList.remove('is-invalid');
+    })
+
+    function validate() {
+        if (form['end'].value != "" && form['start'].value == "") {
+            form['start'].classList.add('is-invalid');
+            startError.innerText = "Start datum mag niet leeg zijn als eind datum is gevulled";
+            return false;
+        } else if (Date.parse(form['end'].value) <= Date.parse(form['start'].value)) {
+            form['start'].classList.add('is-invalid');
+            startError.innerText = "start datum mag niet groter/even als eind datum zijn";
+            return false;
+        } else {
+            if (form['end'].value != "" && form['start'].value != "") {
+                $.post('http://localhost:5298/date', { startDate: form['start'].value, endDate: form['end'].value })
+                    .done(function (data) {
+                        $('#owo').text(data.value);
+                        console.log(data.value);
+                    }).catch((error) => $('#owo').text(error));
+            } else {
+                $.get('http://localhost:5298/date')
+                    .done(function (data) {
+                        $('#owo').text(data.value);
+                    console.log(data.value);
+                    }).catch((error) => $('#owo').text(error));
+            }
+            return false;
+        }
+    }
+
+  
+</script>
+

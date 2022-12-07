@@ -43,7 +43,9 @@ namespace Randomizer.Classes.Tests
         {
             int owo = Randomizer.GetRandomInt(true);
             Assert.IsTrue(owo < 0);
-
+        }
+        
+        [TestMethod()]
         public void GetRandomDiceRollsTest()
         {
             List<int> owo = Randomizer.RandomDice(10);

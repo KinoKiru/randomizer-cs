@@ -31,6 +31,16 @@ namespace Randomizer.API.Controllers
             }
         }
 
+        /// <summary>Defaults the text.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        [HttpGet("random_text")]
+        public IResult defaultText()
+        {
+            return Results.Ok(Classes.Randomizer.GenerateRandomText(1, true, false));
+        }
+
 
     }
 }

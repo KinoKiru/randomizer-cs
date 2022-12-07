@@ -1,12 +1,42 @@
-﻿
-<h1>Random datum generator</h1>
-<small>genereer een x aantal dobbelsteen rolls</small>
+﻿<small>genereer een x aantal dobbelsteen rolls</small>
 
-<form action="/" method="post" class="form-floating d-flex justify-content-center">
 
-    <div class="form-floating d-inline-flex" style="width: 15em">
-        <input type="number" class="form-control" name="amount" id="amount" placeholder="getal" />
-        <label for="amount">Voer een getal in</label>
+<form method="get" onsubmit="return validate()" name="date" id="form" class="form-floating">
+    <div class="row justify-content-center">
+        <div class="form-floating me-4" style="width: 15em">
+            <input type="number" class="form-control" name="start" id="start" placeholder="getal" />
+            <label for="amount">Voer een getal in</label>
+            <div class="valid-feedback">Valid.</div>
+            <div id="start_error" class="invalid-feedback">cannot be empty or lower if end date is filled in</div>
+        </div>
     </div>
-   
+    <div class="d-flex justify-content-center mt-3 row">
+        <button type="submit" class="btn btn-outline-dark" style="width: 39%">Submit</button>
+    </div>
 </form>
+
+<h1 id="owo" class="text-center mt-4"></h1>
+
+<script>
+    let form = document.forms["date"];
+    let startError = document.getElementById('start_error');
+    form['start'].addEventListener('change', () => {
+        form['start'].classList.remove('is-invalid');
+    })
+    function validate() {
+        if (form['end'].value != "" && form['start'].value != "") {
+            $.post('http://localhost:5298/date', { startDate: form['start'].value, endDate: form['end'].value })
+                .done(function (data) {
+                    $('#owo').text(data.value);
+                    console.log(data.value);
+                }).catch((error) => $('#owo').text(error.statusText));
+        } else {
+            $.get('http://localhost:5298/date')
+                .done(function (data) {
+                    $('#owo').text(data.value);
+                    console.log(data.value);
+                }).catch((error) => $('#owo').text(error.statusText));
+        }
+        return false;
+    }            
+</script>

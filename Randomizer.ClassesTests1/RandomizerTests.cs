@@ -32,6 +32,18 @@ namespace Randomizer.Classes.Tests
         }
 
         [TestMethod()]
+        public void GetRandomIntTest()
+        {
+            int owo = Randomizer.GetRandomInt(false);
+            Assert.IsNotNull(owo);
+        }
+
+        [TestMethod()]
+        public void getRandomNegativeTest()
+        {
+            int owo = Randomizer.GetRandomInt(true);
+            Assert.IsTrue(owo < 0);
+
         public void GetRandomDiceRollsTest()
         {
             List<int> owo = Randomizer.RandomDice(10);
@@ -51,6 +63,7 @@ namespace Randomizer.Classes.Tests
         public void GetRandomDiceRollsTestException2()
         {
             Randomizer.RandomDice(10001);
+
         }
     }
 }

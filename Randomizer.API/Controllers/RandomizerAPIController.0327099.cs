@@ -31,7 +31,18 @@ namespace Randomizer.API.Controllers
             {
                 return Results.Problem(ex.Message);
             }
+        }
 
+
+        /// <summary>Gets the random int.</summary>
+        /// <param name="negative">if set to <c>true</c> [negative].</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        [HttpPost("/int")]
+        public IResult getRandomInt(bool negative)
+        {
+            return Results.Ok(Classes.Randomizer.GetRandomInt(negative));
         }
     }
 }

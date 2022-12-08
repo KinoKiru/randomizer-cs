@@ -48,8 +48,10 @@ namespace Randomizer.Classes
                     {
                         result += "<p>" + paragraph + "</p>";
                     } 
-                    result += paragraph;
-                    
+                    else
+                    {
+                        result += paragraph;
+                    }
                 }
                 return result;
             } catch (Exception e)

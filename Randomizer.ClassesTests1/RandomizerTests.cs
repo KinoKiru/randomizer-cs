@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Randomizer.Classes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
@@ -65,6 +66,20 @@ namespace Randomizer.Classes.Tests
         {
             Randomizer.RandomDice(10001);
 
+        }
+
+        [ExpectedException(typeof(ArgumentException))]
+        [TestMethod]
+        public void GetRandomFirstNamesTest()
+        {
+            Randomizer.GetRandomFirstNames(true, true, -1);
+        }
+
+        [TestMethod]
+        public void GetRandomFirstNamesTest1()
+        {
+            var result = Randomizer.GetRandomFirstNames(true, true, 5);
+            Assert.AreEqual(5, result.Count);
         }
     }
 }

@@ -33,6 +33,7 @@
     <DocumentationSources>
       <DocumentationSource sourceFile="..\Randomizer.API\bin\Debug\net6.0\Randomizer.API.dll" xmlns="" />
       <DocumentationSource sourceFile="..\Randomizer.API\bin\Debug\net6.0\Randomizer.API.xml" xmlns="" />
+      <DocumentationSource sourceFile="..\Randomizer.Classes\bin\Debug\net6.0\Randomizer.Classes.dll" />
     </DocumentationSources>
     <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
     <SyntaxFilters>C#</SyntaxFilters>

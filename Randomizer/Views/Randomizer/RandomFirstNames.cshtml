@@ -6,7 +6,7 @@
         <h1 class="text-bg-danger">@ViewBag.Error</h1>
     }
 }
-<small>genereer een x aantal voornamen</small>
+<small>Genereer een X aantal voornamen</small>
 <form method="get" name="firstNames" asp-action="getRandomFirstNames" id="form" class="form-floating mb-5">
     <div class="row justify-content-center">
         <div style="width: 15em">
@@ -25,8 +25,6 @@
         <button type="submit" class="btn btn-outline-dark" style="width: 39%">Submit</button>
     </div>
 </form>
-
-
 
 @if (ViewBag.Response != null)
 {

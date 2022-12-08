@@ -67,16 +67,25 @@ namespace Randomizer.Classes.Tests
             Randomizer.RandomDice(10001);
 
         }
-
-        [ExpectedException(typeof(ArgumentException))]
+        
         [TestMethod]
-        public void GetRandomFirstNamesTest()
+        public void GetRandomFirstNamesTestInvalidAmount()
         {
-            Randomizer.GetRandomFirstNames(true, true, -1);
+            var ex =
+                Assert.ThrowsException<ArgumentException>(() => Randomizer.GetRandomFirstNames(true, false, -2));
+            Assert.AreEqual("The number of given names must be at least 1.", ex.Message);
+        }
+        
+        [TestMethod]
+        public void GetRandomFirstNamesTestInvalidBoolOptions()
+        {
+            var ex =
+                Assert.ThrowsException<ArgumentException>(() => Randomizer.GetRandomFirstNames(false, false, 3));
+            Assert.AreEqual("At least one of the boy/girl booleans must be true.", ex.Message);
         }
 
         [TestMethod]
-        public void GetRandomFirstNamesTest1()
+        public void GetRandomFirstNamesTestValid()
         {
             var result = Randomizer.GetRandomFirstNames(true, true, 5);
             Assert.AreEqual(5, result.Count);

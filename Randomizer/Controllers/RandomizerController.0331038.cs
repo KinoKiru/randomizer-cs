@@ -27,7 +27,7 @@ namespace Randomizer.Controllers
             using var httpClient = new HttpClient();
             if (boy == false && girl == false)
             {
-                ViewBag.Error = "At least one option must be checked.";
+                ViewBag.Error = "At least one of the boy/girl booleans must be true.";
                 ViewBag.Boy = boy;
                 ViewBag.Girl = girl;
                 ViewBag.AmountOfNames = amountOfNames;
@@ -36,7 +36,7 @@ namespace Randomizer.Controllers
 
             if (amountOfNames < 1)
             {
-                ViewBag.Error = "Amount of names must be at least 1.";
+                ViewBag.Error = "The number of given names must be at least 1.";
                 ViewBag.Boy = boy;
                 ViewBag.Girl = girl;
                 ViewBag.AmountOfNames = amountOfNames;

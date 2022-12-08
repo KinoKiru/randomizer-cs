@@ -41,6 +41,25 @@ namespace Randomizer.API.Controllers
             return Results.Ok(Classes.Randomizer.GenerateRandomText(1, true, false));
         }
 
+        /// <summary>Randoms the text with parameters.</summary>
+        /// <param name="amount">The amount.</param>
+        /// <param name="useEn">if set to <c>true</c> [use en].</param>
+        /// <param name="useHtml">if set to <c>true</c> [use HTML].</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        [HttpPost("random_text")]
+        public IResult randomTextWithParameters(byte amount, bool useEn, bool useHtml)
+        {
+            try
+            {
+                return Results.Ok(Classes.Randomizer.GenerateRandomText(amount, useEn, useHtml));
+            }
+            catch (Exception e)
+            {
+                return Results.Problem(e.Message);
+            }
+        }
 
     }
 }

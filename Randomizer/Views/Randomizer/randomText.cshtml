@@ -12,14 +12,14 @@
             <div class="valid-feedback">Valid.</div>
             <div id="amount_error" class="invalid-feedback">cannot be empty or lower then 0</div>
         </div>
-        <div class="form-floating me-4" style="width: 15em">
+        <div class="form-floating" style="width: 15em">
             <div class="bootstrap-switch-square">
-                <input type="checkbox" data-toggle="switch" name="Resend" id="Resend" value="true" />
+                <input class="form-check-input" type="checkbox" value="" name="negative" id="formCheckChecked" checked="">
             </div>
         </div>
-        <div class="form-floating me-4" style="width: 15em">
+        <div class="form-floating" style="width: 15em">
             <div class="bootstrap-switch-square">
-                <input type="checkbox" data-toggle="switch" name="Resend1" id="Resend1" value="true" />
+                <input class="form-check-input" type="checkbox" value="" name="negative1" id="formCheckChecked" checked="">
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
         }
         else {
             if (form['amount'].value != "") {
-                $.post('http://localhost:5298/random_text', { amount: form['amount'].value, useEn: form["Resend"].value, useHtml: ["Resend1"] })
+                $.post('http://localhost:5298/random_text', { amount: form['amount'].value, useEn: form["negative"].checked, useHtml: form["negative1"].checked })
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);

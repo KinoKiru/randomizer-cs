@@ -35,14 +35,19 @@ namespace Randomizer.Classes.Tests
         public void GetRandomIntTest()
         {
             int owo = Randomizer.GetRandomInt(false);
-            Assert.IsNotNull(owo);
+            Assert.IsTrue(owo > 0);
         }
 
         [TestMethod()]
         public void getRandomNegativeTest()
         {
             int owo = Randomizer.GetRandomInt(true);
+            while (owo > 0)
+            {
+                owo = Randomizer.GetRandomInt(true);
+            }
             Assert.IsTrue(owo < 0);
+        }
 
         public void GetRandomDiceRollsTest()
         {

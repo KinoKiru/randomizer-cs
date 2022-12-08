@@ -31,24 +31,25 @@ namespace Randomizer.Classes
             try
             {
                 string result = "";
-                if (numParagraphs > 10) throw new ArgumentException("aantal paragrafen mag niet hoger zijn dan 10");
-                if (numParagraphs <= 0) throw new ArgumentException("aantal paragraden moet hoger zijn dan 0");
 
-                string fileName = useEn ? "lorumipsum.txt" : "lorumipsumnl.txt";
-                string[] lines = File.ReadAllLines(@"../Recources/Text/lorumipsum.txt");
-                Random rnd = new Random();
+                if (numParagraphs > 10) throw new ArgumentException("aantal paragrafen mag niet hoger zijn dan 10");
+                if (numParagraphs <= 0) throw new ArgumentException("aantal paragrafen moet hoger zijn dan 0");
+
+                string[] lines = File.ReadAllLines(@"./Recources/Text/loremipsum.txt");
+
+                if (useEn) lines = File.ReadAllLines(@"./Recources/Text/loremipsumNL.txt");
 
                 for (int i = 0; i < numParagraphs; i++)
                 {
-                    int lineNum = rnd.Next(0, lines.Length);
+                    int lineNum = rng.Next(1, lines.Length);
                     string paragraph = lines[lineNum];
 
                     if (generateAsHtml)
                     {
-                        paragraph = "<p>" + paragraph + "</p>";
-                    }
-
+                        result += "<p>" + paragraph + "</p>";
+                    } 
                     result += paragraph;
+                    
                 }
                 return result;
             } catch (Exception e)

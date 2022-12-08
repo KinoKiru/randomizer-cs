@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace Randomizer.Classes.Tests
 {
@@ -42,6 +43,27 @@ namespace Randomizer.Classes.Tests
         {
             int owo = Randomizer.GetRandomInt(true);
             Assert.IsTrue(owo < 0);
+
+        public void GetRandomDiceRollsTest()
+        {
+            List<int> owo = Randomizer.RandomDice(10);
+            Console.Write(owo);
+            Assert.AreEqual(10, owo.Count);
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(Exception))]
+        public void GetRandomDiceRollsTestException()
+        {
+            Randomizer.RandomDice(0);
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(Exception))]
+        public void GetRandomDiceRollsTestException2()
+        {
+            Randomizer.RandomDice(10001);
+
         }
     }
 }

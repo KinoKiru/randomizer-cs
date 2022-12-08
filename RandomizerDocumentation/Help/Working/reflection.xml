@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reflection>
+  <assemblies>
+    <assembly name="Randomizer.API">
+      <assemblydata version="1.0.0.0" culture="" key="" hash="SHA1" />
+      <attributes>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyFileVersionAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>1.0.0.0</value>
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>1.0.0</value>
+          </argument>
+        </attribute>
+      </attributes>
+    </assembly>
+  </assemblies>
+  <apis>
+    <api id="N:Randomizer.API">
+      <topicdata group="api" />
+      <apidata name="Randomizer.API" group="namespace" />
+      <elements>
+        <element api="T:Randomizer.API.WeatherForecast" />
+      </elements>
+      <file name="fc3eea23-50e4-6dc5-cef3-7e7e1e420a58" />
+    </api>
+    <api id="T:Randomizer.API.WeatherForecast">
+      <topicdata group="api" />
+      <apidata name="WeatherForecast" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" defaultConstructor="M:Randomizer.API.WeatherForecast.#ctor" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:Randomizer.API.WeatherForecast.#ctor" />
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="P:Randomizer.API.WeatherForecast.Date" />
+        <element api="P:Randomizer.API.WeatherForecast.Summary" />
+        <element api="P:Randomizer.API.WeatherForecast.TemperatureC" />
+        <element api="P:Randomizer.API.WeatherForecast.TemperatureF" />
+      </elements>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+        </library>
+        <namespace api="N:Randomizer.API" />
+      </containers>
+      <file name="10fe4f7c-072c-70e0-c7e1-c342f9c830c1" />
+    </api>
+    <api id="Methods.T:Randomizer.API.WeatherForecast">
+      <topicdata name="WeatherForecast" group="list" subgroup="Methods" typeTopicId="T:Randomizer.API.WeatherForecast" />
+      <apidata name="WeatherForecast" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" defaultConstructor="M:Randomizer.API.WeatherForecast.#ctor" />
+      <elements>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+        </library>
+        <namespace api="N:Randomizer.API" />
+        <type api="T:Randomizer.API.WeatherForecast" />
+      </containers>
+      <file name="e85819a5-3ad5-6fec-b96c-15c46de76c32" />
+    </api>
+    <api id="Properties.T:Randomizer.API.WeatherForecast">
+      <topicdata name="WeatherForecast" group="list" subgroup="Properties" typeTopicId="T:Randomizer.API.WeatherForecast" />
+      <apidata name="WeatherForecast" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" defaultConstructor="M:Randomizer.API.WeatherForecast.#ctor" />
+      <elements>
+        <element api="P:Randomizer.API.WeatherForecast.Date" />
+        <element api="P:Randomizer.API.WeatherForecast.Summary" />
+        <element api="P:Randomizer.API.WeatherForecast.TemperatureC" />
+        <element api="P:Randomizer.API.WeatherForecast.TemperatureF" />
+      </elements>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+        </library>
+        <namespace api="N:Randomizer.API" />
+        <type api="T:Randomizer.API.WeatherForecast" />
+      </containers>
+      <file name="f62c3e32-4f30-0999-55ab-fd077aa52140" />
+    </api>
+    <api id="M:Randomizer.API.WeatherForecast.#ctor">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API" />
+        <type api="T:Randomizer.API.WeatherForecast" ref="true" />
+      </containers>
+      <file name="9d66d7c8-c509-b1fa-9caf-d8764e4a4e64" />
+    </api>
+    <api id="P:Randomizer.API.WeatherForecast.Date">
+      <topicdata group="api" />
+      <apidata name="Date" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_Date" />
+      <setter name="set_Date" />
+      <returns>
+        <type api="T:System.DateTime" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API" />
+        <type api="T:Randomizer.API.WeatherForecast" ref="true" />
+      </containers>
+      <file name="aa368774-e5a2-ebea-026f-13c5d056723b" />
+    </api>
+    <api id="P:Randomizer.API.WeatherForecast.Summary">
+      <topicdata group="api" />
+      <apidata name="Summary" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_Summary" />
+      <setter name="set_Summary" />
+      <returns>
+        <type nullable="true" api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API" />
+        <type api="T:Randomizer.API.WeatherForecast" ref="true" />
+      </containers>
+      <file name="56d7be2e-97e3-3e53-bc3e-077c83f97d5a" />
+    </api>
+    <api id="P:Randomizer.API.WeatherForecast.TemperatureC">
+      <topicdata group="api" />
+      <apidata name="TemperatureC" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" set="true" />
+      <getter name="get_TemperatureC" />
+      <setter name="set_TemperatureC" />
+      <returns>
+        <type api="T:System.Int32" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API" />
+        <type api="T:Randomizer.API.WeatherForecast" ref="true" />
+      </containers>
+      <file name="7edfd169-905d-22eb-be9a-307361acc70f" />
+    </api>
+    <api id="P:Randomizer.API.WeatherForecast.TemperatureF">
+      <topicdata group="api" />
+      <apidata name="TemperatureF" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_TemperatureF" />
+      <returns>
+        <type api="T:System.Int32" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API" />
+        <type api="T:Randomizer.API.WeatherForecast" ref="true" />
+      </containers>
+      <file name="0185abe4-f690-28f2-f053-ce2f53cfc0c9" />
+    </api>
+    <api id="N:Randomizer.API.Controllers">
+      <topicdata group="api" />
+      <apidata name="Randomizer.API.Controllers" group="namespace" />
+      <elements>
+        <element api="T:Randomizer.API.Controllers.RandomizerAPIController" />
+        <element api="T:Randomizer.API.Controllers.WeatherForecastController" />
+      </elements>
+      <file name="71ca5cd5-315f-69a0-50f7-08020b6c21ac" />
+    </api>
+    <api id="T:Randomizer.API.Controllers.RandomizerAPIController">
+      <topicdata group="api" />
+      <apidata name="RandomizerAPIController" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" defaultConstructor="M:Randomizer.API.Controllers.RandomizerAPIController.#ctor" />
+      <family>
+        <ancestors>
+          <type api="T:Microsoft.AspNetCore.Mvc.ControllerBase" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.#ctor" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.dateDefault" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.dateWithParameters(System.Nullable{System.DateTime},System.Nullable{System.DateTime})" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.defaultRandomDice" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.DefaultRandomFirstNames" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.defaultText" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.getRandomInt(System.Boolean)" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.randomDiceWithParameters(System.Int32)" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.RandomFirstNames(System.Boolean,System.Boolean,System.Int32)" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.randomTextWithParameters(System.Byte,System.Boolean,System.Boolean)" />
+      </elements>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+      </containers>
+      <file name="4c285b92-7de6-8c47-52bb-35fbcc955185" />
+    </api>
+    <api id="Methods.T:Randomizer.API.Controllers.RandomizerAPIController">
+      <topicdata name="RandomizerAPIController" group="list" subgroup="Methods" typeTopicId="T:Randomizer.API.Controllers.RandomizerAPIController" />
+      <apidata name="RandomizerAPIController" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" defaultConstructor="M:Randomizer.API.Controllers.RandomizerAPIController.#ctor" />
+      <elements>
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.dateDefault" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.dateWithParameters(System.Nullable{System.DateTime},System.Nullable{System.DateTime})" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.defaultRandomDice" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.DefaultRandomFirstNames" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.defaultText" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.getRandomInt(System.Boolean)" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.randomDiceWithParameters(System.Int32)" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.RandomFirstNames(System.Boolean,System.Boolean,System.Int32)" />
+        <element api="M:Randomizer.API.Controllers.RandomizerAPIController.randomTextWithParameters(System.Byte,System.Boolean,System.Boolean)" />
+      </elements>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" />
+      </containers>
+      <file name="8f7c3b13-d32f-22d2-f171-be003c0d50c2" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.#ctor">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="6d40f867-4f55-c673-bcc7-b3b947226e85" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.dateDefault">
+      <topicdata group="api" />
+      <apidata name="dateDefault" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <returns>
+        <type api="T:Microsoft.AspNetCore.Http.IResult" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="28396eb9-5d50-accd-d776-4a63d64b7f6e" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.dateWithParameters(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+      <topicdata group="api" />
+      <apidata name="dateWithParameters" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="startDate">
+          <type api="T:System.Nullable`1" ref="false">
+            <specialization>
+              <type api="T:System.DateTime" ref="false" />
+            </specialization>
+          </type>
+        </parameter>
+        <parameter name="endDate">
+          <type api="T:System.Nullable`1" ref="false">
+            <specialization>
+              <type api="T:System.DateTime" ref="false" />
+            </specialization>
+          </type>
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:Microsoft.AspNetCore.Http.IResult" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="470e0f25-6216-110e-5522-1b528abaf19a" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.defaultRandomDice">
+      <topicdata group="api" />
+      <apidata name="defaultRandomDice" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <returns>
+        <type api="T:Microsoft.AspNetCore.Http.IResult" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="66a1447f-b5e0-bee6-bd73-ffa7342e00b3" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.DefaultRandomFirstNames">
+      <topicdata group="api" />
+      <apidata name="DefaultRandomFirstNames" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <returns>
+        <type api="T:Microsoft.AspNetCore.Http.IResult" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="bf2c7fb0-70d0-bd1f-b07d-9f0bf38c097a" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.defaultText">
+      <topicdata group="api" />
+      <apidata name="defaultText" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <returns>
+        <type api="T:Microsoft.AspNetCore.Http.IResult" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="d5fa63e3-26b5-4051-0e72-d5f45b476edd" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.getRandomInt(System.Boolean)">
+      <topicdata group="api" />
+      <apidata name="getRandomInt" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="negative">
+          <type api="T:System.Boolean" ref="false" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:Microsoft.AspNetCore.Http.IResult" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="c9e28faf-2295-6fdb-f77b-adf71cc3341c" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.randomDiceWithParameters(System.Int32)">
+      <topicdata group="api" />
+      <apidata name="randomDiceWithParameters" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="amount">
+          <type api="T:System.Int32" ref="false" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:Microsoft.AspNetCore.Http.IResult" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="2552a6b4-6421-d138-9926-ccaf1b59bb8a" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.RandomFirstNames(System.Boolean,System.Boolean,System.Int32)">
+      <topicdata group="api" />
+      <apidata name="RandomFirstNames" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="boy">
+          <type api="T:System.Boolean" ref="false" />
+        </parameter>
+        <parameter name="girl">
+          <type api="T:System.Boolean" ref="false" />
+        </parameter>
+        <parameter name="amountOfNames">
+          <type api="T:System.Int32" ref="false" />
+        </parameter>
+      </parameters>
+      <returns>
+        <arrayOf rank="1">
+          <type api="T:System.String" ref="true" />
+        </arrayOf>
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="2b899ad6-22b6-9be4-2582-8341fa320a2a" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.RandomizerAPIController.randomTextWithParameters(System.Byte,System.Boolean,System.Boolean)">
+      <topicdata group="api" />
+      <apidata name="randomTextWithParameters" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="amount">
+          <type api="T:System.Byte" ref="false" />
+        </parameter>
+        <parameter name="useEn">
+          <type api="T:System.Boolean" ref="false" />
+        </parameter>
+        <parameter name="useHtml">
+          <type api="T:System.Boolean" ref="false" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:Microsoft.AspNetCore.Http.IResult" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.RandomizerAPIController" ref="true" />
+      </containers>
+      <file name="a8f9b5df-026b-21b3-5401-ad9c663de2cc" />
+    </api>
+    <api id="T:Randomizer.API.Controllers.WeatherForecastController">
+      <topicdata group="api" />
+      <apidata name="WeatherForecastController" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:Microsoft.AspNetCore.Mvc.ControllerBase" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:Randomizer.API.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger`1)" />
+        <element api="M:Randomizer.API.Controllers.WeatherForecastController.Get" />
+      </elements>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+      </containers>
+      <file name="0840f55b-b7a7-273d-c0cf-b704d49b8e6b" />
+    </api>
+    <api id="Methods.T:Randomizer.API.Controllers.WeatherForecastController">
+      <topicdata name="WeatherForecastController" group="list" subgroup="Methods" typeTopicId="T:Randomizer.API.Controllers.WeatherForecastController" />
+      <apidata name="WeatherForecastController" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <elements>
+        <element api="M:Randomizer.API.Controllers.WeatherForecastController.Get" />
+      </elements>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.WeatherForecastController" />
+      </containers>
+      <file name="011d39f9-2c79-879e-296c-44d24f8822fd" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger`1)">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" />
+      <parameters>
+        <parameter name="logger">
+          <type api="T:Microsoft.Extensions.Logging.ILogger`1" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.WeatherForecastController" ref="true" />
+      </containers>
+      <file name="6f939358-f2ec-717d-e318-11967ceb65de" />
+    </api>
+    <api id="M:Randomizer.API.Controllers.WeatherForecastController.Get">
+      <topicdata group="api" />
+      <apidata name="Get" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <returns>
+        <type api="T:System.Collections.Generic.IEnumerable`1" ref="true">
+          <specialization>
+            <type api="T:Randomizer.API.WeatherForecast" ref="true" />
+          </specialization>
+        </type>
+      </returns>
+      <containers>
+        <library assembly="Randomizer.API" module="Randomizer.API" kind="ConsoleApplication">
+          <assemblydata version="1.0.0" />
+          <noAptca />
+        </library>
+        <namespace api="N:Randomizer.API.Controllers" />
+        <type api="T:Randomizer.API.Controllers.WeatherForecastController" ref="true" />
+      </containers>
+      <file name="d9fcebc6-5dc0-7353-db28-64fa6a8f3823" />
+    </api>
+  </apis>
+</reflection>

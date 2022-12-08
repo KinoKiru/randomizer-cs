@@ -35,12 +35,12 @@ namespace Randomizer.Classes
                 List<string> finalFirstNames = new();
                 if (boy)
                 {
-                    allFirstNames.AddRange(File.ReadAllLines("Recources/Text/jongensvoornamen.txt").ToList());
+                    allFirstNames.AddRange(File.ReadAllLines("./Recources/Text/jongensvoornamen.txt").ToList());
                 }
 
                 if (girl)
                 {
-                    allFirstNames.AddRange(File.ReadAllLines("Recources/Text/meisjesvoornamen.txt").ToList());
+                    allFirstNames.AddRange(File.ReadAllLines("./Recources/Text/meisjesvoornamen.txt").ToList());
                 }
 
                 for (int i = 0; i < amountOfNames; i++)

@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 namespace Randomizer.Classes.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class RandomizerTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDateTest()
         {
             DateTime owo = Randomizer.GetRandomDate();
@@ -16,7 +16,7 @@ namespace Randomizer.Classes.Tests
             Assert.IsNotNull(owo);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDateWithStartTest()
         {
             DateTime owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4));
@@ -24,7 +24,7 @@ namespace Randomizer.Classes.Tests
             Assert.IsNotNull(owo);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDateWithStartAndEndTest()
         {
             DateTime owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4), new DateTime(2010, 9, 2));
@@ -32,14 +32,14 @@ namespace Randomizer.Classes.Tests
             Assert.IsNotNull(owo);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomIntTest()
         {
             int owo = Randomizer.GetRandomInt(false);
             Assert.IsNotNull(owo);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void getRandomNegativeTest()
         {
             int owo = Randomizer.GetRandomInt(true);
@@ -47,7 +47,7 @@ namespace Randomizer.Classes.Tests
         }
 
         
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDiceRollsTest()
         {
             List<int> owo = Randomizer.RandomDice(10);
@@ -55,7 +55,7 @@ namespace Randomizer.Classes.Tests
             Assert.AreEqual(10, owo.Count);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDiceRollsTest2()
         {
             List<int> owo = Randomizer.RandomDice(10000);
@@ -70,14 +70,14 @@ namespace Randomizer.Classes.Tests
 
         }
 
-        [TestMethod()]
+        [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void GetRandomDiceRollsTestException()
         {
             Randomizer.RandomDice(0);
         }
 
-        [TestMethod()]
+        [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void GetRandomDiceRollsTestException2()
         {
@@ -104,8 +104,7 @@ namespace Randomizer.Classes.Tests
         [TestMethod]
         public void GetRandomFirstNamesTestValid()
         {
-            var result = Randomizer.GetRandomFirstNames(true, true, 5);
-            Assert.AreEqual(5, result.Count);
+            Assert.AreEqual(5, Randomizer.GetRandomFirstNames(true, true, 5).Count);
         }
     }
 }

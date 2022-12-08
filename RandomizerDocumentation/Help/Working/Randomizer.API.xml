@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Randomizer.API</name>
+  </assembly>
+  <members>
+    <member name="M:Randomizer.API.Controllers.RandomizerAPIController.dateDefault">
+      <summary>returns date, uses default settings</summary>
+      <returns>
+        <br />
+      </returns>
+    </member>
+    <member name="M:Randomizer.API.Controllers.RandomizerAPIController.dateWithParameters(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+      <summary>Date the with parameters.</summary>
+      <param name="startDate">The start date.</param>
+      <param name="endDate">The end date.</param>
+      <returns>
+        <br />
+      </returns>
+    </member>
+    <member name="M:Randomizer.API.Controllers.RandomizerAPIController.getRandomInt(System.Boolean)">
+      <summary>Gets the random int.</summary>
+      <param name="negative">if set to <c>true</c> [negative].</param>
+      <returns>
+        <br />
+      </returns>
+    </member>
+    <member name="M:Randomizer.API.Controllers.RandomizerAPIController.defaultRandomDice">
+      <summary>Defaults the random dice.</summary>
+      <returns>
+        <br />
+      </returns>
+    </member>
+    <member name="M:Randomizer.API.Controllers.RandomizerAPIController.randomDiceWithParameters(System.Int32)">
+      <summary>Randoms the dice with parameters.</summary>
+      <param name="amount">The amount.</param>
+      <returns>
+        <br />
+      </returns>
+    </member>
+    <member name="M:Randomizer.API.Controllers.RandomizerAPIController.defaultText">
+      <summary>Defaults the text.</summary>
+      <returns>
+        <br />
+      </returns>
+    </member>
+    <member name="M:Randomizer.API.Controllers.RandomizerAPIController.randomTextWithParameters(System.Byte,System.Boolean,System.Boolean)">
+      <summary>Randoms the text with parameters.</summary>
+      <param name="amount">The amount.</param>
+      <param name="useEn">if set to <c>true</c> [use en].</param>
+      <param name="useHtml">if set to <c>true</c> [use HTML].</param>
+      <returns>
+        <br />
+      </returns>
+    </member>
+    <member name="M:Randomizer.API.Controllers.RandomizerAPIController.DefaultRandomFirstNames">
+      <summary>Returns a default API Call result</summary>
+      <returns>
+        <br />
+      </returns>
+    </member>
+    <member name="M:Randomizer.API.Controllers.RandomizerAPIController.RandomFirstNames(System.Boolean,System.Boolean,System.Int32)">
+      <summary>Returns a string of arrays containing a given amount of random first names of boys and/of girls depending on the users choices.</summary>
+      <param name="boy">if set to <c>true</c> [boy].</param>
+      <param name="girl">if set to <c>true</c> [girl].</param>
+      <param name="amountOfNames">The amount of names.</param>
+      <returns>
+        <br />
+      </returns>
+    </member>
+    <member name="N:Randomizer.API">
+      <summary> </summary>
+    </member>
+    <member name="N:Randomizer.API.Controllers">
+      <summary> </summary>
+    </member>
+  </members>
+</doc>

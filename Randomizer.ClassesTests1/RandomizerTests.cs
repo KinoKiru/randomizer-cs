@@ -54,6 +54,21 @@ namespace Randomizer.Classes.Tests
         }
 
         [TestMethod()]
+        public void GetRandomDiceRollsTest2()
+        {
+            List<int> owo = Randomizer.RandomDice(10000);
+            int i = 0;
+            if (owo.Contains(1)) { i = i + 1; }
+            if (owo.Contains(2)) { i = i + 1; }
+            if (owo.Contains(3)) { i = i + 1; }
+            if (owo.Contains(4)) { i = i + 1; }
+            if (owo.Contains(5)) { i = i + 1; }
+            if (owo.Contains(6)) { i = i + 1; }
+            Assert.AreEqual(i, 6);
+
+        }
+
+        [TestMethod()]
         [ExpectedException(typeof(Exception))]
         public void GetRandomDiceRollsTestException()
         {

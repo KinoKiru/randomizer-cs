@@ -2,7 +2,7 @@
 
 namespace Randomizer.API.Controllers
 {
-    public partial class RandomizerAPIController : ControllerBase
+    public partial class RandomizerAPIController
     {
         /// <summary>Defaults the random dice.</summary>
         /// <returns>

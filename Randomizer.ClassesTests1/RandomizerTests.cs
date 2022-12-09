@@ -1,13 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Randomizer.Classes.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class RandomizerTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDateTest()
         {
             DateTime owo = Randomizer.GetRandomDate();
@@ -15,7 +15,7 @@ namespace Randomizer.Classes.Tests
             Assert.IsNotNull(owo);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDateWithStartTest()
         {
             DateTime owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4));
@@ -23,7 +23,7 @@ namespace Randomizer.Classes.Tests
             Assert.IsNotNull(owo);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDateWithStartAndEndTest()
         {
             DateTime owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4), new DateTime(2010, 9, 2));
@@ -31,17 +31,21 @@ namespace Randomizer.Classes.Tests
             Assert.IsNotNull(owo);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomIntTest()
         {
             int owo = Randomizer.GetRandomInt(false);
-            Assert.IsNotNull(owo);
+            Assert.IsTrue(owo > 0);
         }
 
         [TestMethod()]
         public void getRandomNegativeTest()
         {
             int owo = Randomizer.GetRandomInt(true);
+            while (owo > 0)
+            {
+                owo = Randomizer.GetRandomInt(true);
+            }
             Assert.IsTrue(owo < 0);
         }
 
@@ -76,12 +80,34 @@ namespace Randomizer.Classes.Tests
             Randomizer.RandomDice(0);
         }
 
-        [TestMethod()]
+        [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void GetRandomDiceRollsTestException2()
         {
             Randomizer.RandomDice(10001);
 
+        }
+
+        [TestMethod]
+        public void GetRandomFirstNamesTestInvalidAmount()
+        {
+            var ex =
+                Assert.ThrowsException<ArgumentException>(() => Randomizer.GetRandomFirstNames(true, false, -2));
+            Assert.AreEqual("The number of given names must be at least 1.", ex.Message);
+        }
+
+        [TestMethod]
+        public void GetRandomFirstNamesTestInvalidBoolOptions()
+        {
+            var ex =
+                Assert.ThrowsException<ArgumentException>(() => Randomizer.GetRandomFirstNames(false, false, 3));
+            Assert.AreEqual("At least one of the boy/girl booleans must be true.", ex.Message);
+        }
+
+        [TestMethod]
+        public void GetRandomFirstNamesTestValid()
+        {
+            Assert.AreEqual(5, Randomizer.GetRandomFirstNames(true, true, 5).Count);
         }
     }
 }

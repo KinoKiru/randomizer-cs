@@ -1,6 +1,6 @@
 ﻿<div class="text-center mb-3">
     <h1 class="mb-0">Random datum generator</h1>
-    <small>genereer een random datum, als je start datum meegeeft is dat de minimale en end date is het maximale</small>
+    <small>Genereer een random datum, als je een start datum meegeeft is dat de minimale en end date is dan de maximale</small>
     <small class="d-block"><i>Youri Bakker</i></small>
 </div>
 
@@ -45,7 +45,7 @@
             return false;
         } else {
             if (form['end'].value != "" && form['start'].value != "") {
-                $.post('http://localhost:5298/date', { startDate: form['start'].value, endDate: form['end'].value })
+                $.get(`http://localhost:5298/date/${form['start'].value}/${form['end'].value}`)
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);

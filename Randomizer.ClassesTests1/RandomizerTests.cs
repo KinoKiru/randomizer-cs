@@ -1,6 +1,4 @@
-﻿using Randomizer.Classes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Randomizer.Classes.Tests
@@ -39,15 +37,24 @@ namespace Randomizer.Classes.Tests
             Assert.IsNotNull(owo);
         }
 
-        [TestMethod]
+        [TestMethod()]
+        public void GetRandomIntTest()
+        {
+            int owo = Randomizer.GetRandomInt(false);
+            Assert.IsTrue(owo > 0);
+        }
+
+        [TestMethod()]
         public void getRandomNegativeTest()
         {
             int owo = Randomizer.GetRandomInt(true);
+            while (owo > 0)
+            {
+                owo = Randomizer.GetRandomInt(true);
+            }
             Assert.IsTrue(owo < 0);
         }
 
-        
-        [TestMethod]
         public void GetRandomDiceRollsTest()
         {
             List<int> owo = Randomizer.RandomDice(10);
@@ -84,7 +91,7 @@ namespace Randomizer.Classes.Tests
             Randomizer.RandomDice(10001);
 
         }
-        
+
         [TestMethod]
         public void GetRandomFirstNamesTestInvalidAmount()
         {
@@ -92,7 +99,7 @@ namespace Randomizer.Classes.Tests
                 Assert.ThrowsException<ArgumentException>(() => Randomizer.GetRandomFirstNames(true, false, -2));
             Assert.AreEqual("The number of given names must be at least 1.", ex.Message);
         }
-        
+
         [TestMethod]
         public void GetRandomFirstNamesTestInvalidBoolOptions()
         {

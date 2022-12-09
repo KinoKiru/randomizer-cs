@@ -6,7 +6,11 @@
         <h1 class="text-bg-danger">@ViewBag.Error</h1>
     }
 }
-<small>Genereer een X aantal voornamen</small>
+<div class="text-center mb-3">
+    <h1 class="mb-0">Random voornamen generator</h1>
+    <small>Genereer willekeurige voornamen van jongens en/of meisjes</small>
+    <small class="d-block"><i>Youri Blanckenborg</i></small>
+</div>
 <form method="get" onsubmit="return validate()" asp-action="getRandomFirstNames" id="form" name="firstNames" class="form-floating mb-5">
     <div class="row justify-content-center">
         <div style="width: 15em">

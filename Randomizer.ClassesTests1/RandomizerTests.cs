@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Randomizer.Classes.Tests
 {
@@ -31,13 +32,6 @@ namespace Randomizer.Classes.Tests
         }
 
         [TestMethod]
-        public void GetRandomIntTest()
-        {
-            int owo = Randomizer.GetRandomInt(false);
-            Assert.IsNotNull(owo);
-        }
-
-        [TestMethod()]
         public void GetRandomIntTest()
         {
             int owo = Randomizer.GetRandomInt(false);

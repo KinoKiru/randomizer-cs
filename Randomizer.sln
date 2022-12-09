@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Randomizer.ClassesTests1", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Randomizer.API", "Randomizer.API\Randomizer.API.csproj", "{2E452865-F9EF-4756-A27E-07F72A83976E}"
 EndProject
-Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "RandomizerDocumentation", "RandomizerDocumentation\RandomizerDocumentation.shfbproj", "{3CF17C93-01E6-484F-BED1-FD9227730C15}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,10 +51,6 @@ Global
 		{2E452865-F9EF-4756-A27E-07F72A83976E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E452865-F9EF-4756-A27E-07F72A83976E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E452865-F9EF-4756-A27E-07F72A83976E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3CF17C93-01E6-484F-BED1-FD9227730C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3CF17C93-01E6-484F-BED1-FD9227730C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3CF17C93-01E6-484F-BED1-FD9227730C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3CF17C93-01E6-484F-BED1-FD9227730C15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -49,6 +49,8 @@ namespace Randomizer.Classes.Tests
             Assert.IsTrue(owo < 0);
         }
 
+        
+        [TestMethod()]
         public void GetRandomDiceRollsTest()
         {
             List<int> owo = Randomizer.RandomDice(10);
@@ -56,7 +58,7 @@ namespace Randomizer.Classes.Tests
             Assert.AreEqual(10, owo.Count);
         }
 
-        [TestMethod]
+        [TestMethod()]
         public void GetRandomDiceRollsTest2()
         {
             List<int> owo = Randomizer.RandomDice(10000);
@@ -71,7 +73,7 @@ namespace Randomizer.Classes.Tests
 
         }
 
-        [TestMethod]
+        [TestMethod()]
         [ExpectedException(typeof(Exception))]
         public void GetRandomDiceRollsTestException()
         {

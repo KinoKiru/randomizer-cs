@@ -50,7 +50,7 @@
         }
         else {
             if (form['amount'].value != "") {
-                $.post('http://localhost:5298/random_text', { amount: form['amount'].value, useEn: form["negative"].checked, useHtml: form["negative1"].checked })
+                $.post(`http://localhost:5298/random_text/${form['amount'].value}/${form["negative"].checked}/${form["negative1"].checked }`)
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);

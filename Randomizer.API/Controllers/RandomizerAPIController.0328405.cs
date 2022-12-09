@@ -19,7 +19,7 @@ namespace Randomizer.API.Controllers
         /// <returns>
         ///   <br />
         /// </returns>
-        [HttpPost("random_dice")]
+        [HttpGet("random_dice/{amount}")]
         public IResult randomDiceWithParameters(int amount)
         {
             try
@@ -48,7 +48,7 @@ namespace Randomizer.API.Controllers
         /// <returns>
         ///   <br />
         /// </returns>
-        [HttpPost("random_text")]
+        [HttpGet("random_text/{amount}/{useEn?}/{useHtml?}")]
         public IResult randomTextWithParameters(byte amount, bool useEn, bool useHtml)
         {
             try

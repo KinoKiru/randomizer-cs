@@ -43,7 +43,7 @@
         } 
         else {
             if (form['amount'].value != "") {
-                $.post('http://localhost:5298/random_dice', { amount: form['amount'].value })
+                $.get(`http://localhost:5298/random_dice/${form['amount'].value})`
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);

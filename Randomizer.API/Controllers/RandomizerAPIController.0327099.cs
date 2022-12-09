@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Randomizer.API.Controllers
+﻿namespace Randomizer.API.Controllers
 {
     public partial class RandomizerAPIController
     {
@@ -20,7 +18,7 @@ namespace Randomizer.API.Controllers
         /// <returns>
         ///   <br />
         /// </returns>
-        [HttpPost("/date")]
+        [HttpGet("/date/{startDate}/{endDate?}")]
         public IResult dateWithParameters(DateTime? startDate, DateTime? endDate)
         {
             try
@@ -39,7 +37,7 @@ namespace Randomizer.API.Controllers
         /// <returns>
         ///   <br />
         /// </returns>
-        [HttpPost("/int")]
+        [HttpGet("/int/{negative}")]
         public IResult getRandomInt(bool negative)
         {
             return Results.Ok(Classes.Randomizer.GetRandomInt(negative));

@@ -7,7 +7,7 @@
     }
 }
 <small>Genereer een X aantal voornamen</small>
-<form method="get" name="firstNames" asp-action="getRandomFirstNames" id="form" class="form-floating mb-5">
+<form method="get" onsubmit="return validate()" asp-action="getRandomFirstNames" id="form" name="firstNames" class="form-floating mb-5">
     <div class="row justify-content-center">
         <div style="width: 15em">
             <label for="boy">Jongensnamen</label>
@@ -17,8 +17,11 @@
             <label for="girl">Meisjesnamen</label>
             <input type="checkbox" id="girl" name="girl" value="true" @(ViewBag.Girl != null ? ViewBag.Girl == true ? "checked" : "" : "") />
         </div>
-        <div style="width: 15em">
-            <input type="number" class="form-control" name="amountOfNames" id="amountOfNames" placeholder="Aantal voornamen" value="@ViewBag.AmountOfNames" />
+        <div class="form-floating me-4" style="width: 15em">
+            <input type="number" class="form-control" name="amountOfNames" id="amountOfNames" placeholder="Aantal voornamen" value="@ViewBag.AmountOfNames" min="1" required/>
+            <label for="amountOfNames" class="ms-2">Aantal voornamen</label>
+            <div class="valid-feedback">Valid.</div>
+            <div id="amount_error" class="invalid-feedback">Amount of names cannot be empty or lower then 1</div>
         </div>
     </div>
     <div class="d-flex justify-content-center mt-3 row">

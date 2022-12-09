@@ -1,4 +1,5 @@
-﻿namespace Randomizer.API.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+namespace Randomizer.API.Controllers
 {
     public partial class RandomizerAPIController
     {
@@ -40,7 +41,72 @@
         [HttpGet("/int/{negative}")]
         public IResult getRandomInt(bool negative)
         {
-            return Results.Ok(Classes.Randomizer.GetRandomInt(negative));
+            try
+            {
+                return Results.Ok(Classes.Randomizer.GetRandomInt(negative));
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+
+        }
+
+
+        [HttpGet("/card/{includeJoker}")]
+        public IResult getRandomCard(bool includeJoker)
+        {
+            try
+            {
+                return Results.Ok(Classes.Randomizer.getImage(includeJoker));
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+
+        }
+
+        [HttpGet("/password/{length}")]
+        public IResult getPasswordLength(int length)
+        {
+            try
+            {
+                return Results.Ok(Classes.Randomizer.generatePassword(length));
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+
+        }
+
+        [HttpGet("/password/{length}/{lower}/{upper}/{special}/{number}")]
+        public IResult getPasswordLengthParameters(int length, bool lower, bool upper, bool special, bool number)
+        {
+            try
+            {
+                return Results.Ok(Classes.Randomizer.generatePassword(length, lower, upper, special, number));
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+
+        }
+
+        [HttpGet("/password/{lower}/{upper}/{special}/{number}")]
+        public IResult getPasswordAmount(int lower, int upper, int special, int number)
+        {
+            try
+            {
+                return Results.Ok(Classes.Randomizer.generatePassword(lower, upper, special, number));
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+
         }
     }
 }

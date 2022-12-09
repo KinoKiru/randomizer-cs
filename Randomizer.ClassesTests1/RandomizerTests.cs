@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 
 namespace Randomizer.Classes.Tests
@@ -30,12 +31,6 @@ namespace Randomizer.Classes.Tests
             Assert.IsNotNull(owo);
         }
 
-        [TestMethod]
-        public void GetRandomIntTest()
-        {
-            int owo = Randomizer.GetRandomInt(false);
-            Assert.IsNotNull(owo);
-        }
 
         [TestMethod()]
         public void GetRandomIntTest()
@@ -112,6 +107,21 @@ namespace Randomizer.Classes.Tests
         public void GetRandomFirstNamesTestValid()
         {
             Assert.AreEqual(5, Randomizer.GetRandomFirstNames(true, true, 5).Count);
+        }
+
+        [TestMethod()]
+        public void getImageTest()
+        {
+            var owo = Randomizer.getImage(true);
+            var uwu = System.Text.Encoding.Default.GetString(owo);
+
+            while (!uwu.Contains("joker"))
+            {
+                owo = Randomizer.getImage(true);
+                uwu = System.Text.Encoding.Default.GetString(owo);
+            }
+
+            Assert.IsTrue(uwu.Contains("joker"));
         }
     }
 }

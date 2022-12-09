@@ -15,5 +15,17 @@ namespace Randomizer.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult randomImage()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult randomPassword()
+        {
+            return View();
+        }
     }
 }

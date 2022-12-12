@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace Randomizer.Classes
 {
@@ -54,6 +51,51 @@ namespace Randomizer.Classes
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+        }
+
+        public static List<string> GetRandomNames(string country, int amountOfNames)
+        {
+            if (amountOfNames is < 1 or > 100)
+            {
+                throw new ArgumentException("The number of given names must be at least 1.");
+            }
+
+            if (string.IsNullOrEmpty(country) || country.Length != 2)
+            {
+                throw new ArgumentException("The given country is not supported, please use country codes like SP, IT, GE, etc.");
+            }
+
+            SqlConnection conn = new SqlConnection("Server=.;Database=RandomizerDB;Trusted_Connection=True;");
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("spGetNames", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter countryParam = cmd.Parameters.Add("@Country", SqlDbType.VarChar, 2);
+                SqlParameter amountOfNamesParam = cmd.Parameters.Add("@AmountOfNames", SqlDbType.Int);
+                countryParam.Value = country;
+                amountOfNamesParam.Value = amountOfNames;
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<string> names = new();
+                while (dr.Read())
+                {
+                    names.Add((string)dr["LastName"]);
+                }
+
+                return names.Count > 0 ? names : new List<string> { "No results where found." };
+
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    conn.Close();
+                }
             }
         }
     }

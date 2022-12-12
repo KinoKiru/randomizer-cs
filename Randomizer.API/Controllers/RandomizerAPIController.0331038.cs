@@ -31,7 +31,28 @@ namespace Randomizer.API.Controllers
             }
             catch (Exception e)
             {
-                return new string[] { e.Message };
+                return new [] { e.Message };
+            }
+        }
+
+        [HttpGet]
+        [Route("random_names")]
+        public IResult DefaultNames()
+        {
+            return Results.Ok(Classes.Randomizer.GetRandomNames("SP", 1));
+        }
+
+        [HttpGet]
+        [Route("random_names/{country}/{amountOfNames:int}")]
+        public string[] RandomNames(string country, int amountOfNames)
+        {
+            try
+            {
+                return Classes.Randomizer.GetRandomNames(country, amountOfNames).ToArray();
+            }
+            catch (Exception e)
+            {
+                return new[] { e.Message };
             }
         }
     }

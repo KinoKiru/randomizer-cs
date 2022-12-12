@@ -38,7 +38,7 @@ namespace Randomizer.Classes.Tests
             Assert.IsTrue(owo > 0);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void getRandomNegativeTest()
         {
             int owo = Randomizer.GetRandomInt(true);
@@ -49,6 +49,7 @@ namespace Randomizer.Classes.Tests
             Assert.IsTrue(owo < 0);
         }
 
+        [TestMethod]
         public void GetRandomDiceRollsTest()
         {
             List<int> owo = Randomizer.RandomDice(10);
@@ -106,6 +107,21 @@ namespace Randomizer.Classes.Tests
         public void GetRandomFirstNamesTestValid()
         {
             Assert.AreEqual(5, Randomizer.GetRandomFirstNames(true, true, 5).Count);
+            Assert.IsInstanceOfType(Randomizer.GetRandomNames("SP", 5), typeof(List<string>));
+        }
+
+        [TestMethod]
+        public void GetRandomNamesInvalidCountry()
+        {
+            var ex = Assert.ThrowsException<ArgumentException>(() => Randomizer.GetRandomNames("Netherlands", 5));
+            Assert.AreEqual("The given country is not supported, please use country codes like SP, IT, GE, etc.", ex.Message);
+        }
+
+        [TestMethod]
+        public void GetRandomNamesValid()
+        {
+            Assert.AreEqual(5, Randomizer.GetRandomNames("SP", 5).Count);
+            Assert.IsInstanceOfType(Randomizer.GetRandomNames("SP", 5), typeof(List<string>));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<div class="text-center mb-3">
     <h1 class="mb-0">Random dobbelsteen generator</h1>
-    <small>genereer een random nummer uit een 'dobbesteel'</small>
+    <small>Genereer een random nummer uit een 'dobbesteen'</small>
     <small class="d-block"><i>Niels Rolleman</i></small>
 </div>
 
@@ -43,7 +43,7 @@
         } 
         else {
             if (form['amount'].value != "") {
-                $.post('http://localhost:5298/random_dice', { amount: form['amount'].value })
+                $.get(`http://localhost:5298/random_dice/${form['amount'].value})`
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);

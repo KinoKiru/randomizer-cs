@@ -61,5 +61,37 @@ namespace Randomizer.API.Controllers
             }
         }
 
+        /// <summary>Randoms the color.</summary>
+        /// <param name="knowColor">if set to <c>true</c> [know color].</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        [HttpGet("random_color/{knowColor}")]
+        public IResult randomColor(bool knowColor)
+        {
+            try
+            {
+                return Results.Ok(Classes.Randomizer.RandomColor(knowColor));
+            } catch (Exception e)
+            {
+                return Results.Problem(e.Message);
+            }
+        }
+
+        /// <summary>Randoms the location.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        [HttpGet("random_location")]
+        public IResult randomLocation()
+        {
+            try
+            {
+                return Results.Ok(Classes.Randomizer.GetRandomLocation());
+            } catch (Exception e)
+            {
+                return Results.Problem(e.Message);
+            }
+        }
     }
 }

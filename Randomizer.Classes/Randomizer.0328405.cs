@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 namespace Randomizer.Classes
 {
@@ -59,5 +63,38 @@ namespace Randomizer.Classes
                 throw new Exception(e.Message);
             }
         }
+        public static string RandomColor(bool knownColor)
+        {
+            if (knownColor == true)
+            {
+                Array colorsArray = Enum.GetValues(typeof(KnownColor));
+                KnownColor[] allColors = new KnownColor[colorsArray.Length];
+
+                Array.Copy(colorsArray, allColors, colorsArray.Length);
+                Color randomColor = Color.FromKnownColor(allColors[rng.Next(0, allColors.Length)]);
+                return randomColor.Name;
+            }
+            Color myColor = Color.FromArgb(rng.Next(0, 256), rng.Next(0, 256), rng.Next(0, 256));
+            string hex = myColor.R.ToString("X2") + myColor.G.ToString("X2") + myColor.B.ToString("X2");
+            return hex;
+        }
+        public struct Location
+        {
+            public double Longitude { get; set; }
+            public double Latitude { get; set; }
+        }
+
+        public static string GetRandomLocation()
+        {
+
+            var location = new Location
+            {
+                Longitude = rng.NextDouble() * 180 - 90,
+                Latitude = rng.NextDouble() * 360 - 180
+            };
+
+            return JsonSerializer.Serialize(location);
+        }
     }
 }
+

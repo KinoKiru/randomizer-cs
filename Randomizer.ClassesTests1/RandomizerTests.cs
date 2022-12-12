@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using static Randomizer.Classes.Randomizer;
 
 namespace Randomizer.Classes.Tests
 {
     [TestClass]
     public class RandomizerTests
     {
+
+        private static readonly Random rng = new Random();
+
         [TestMethod]
         public void GetRandomDateTest()
         {
@@ -108,6 +113,38 @@ namespace Randomizer.Classes.Tests
         public void GetRandomFirstNamesTestValid()
         {
             Assert.AreEqual(5, Randomizer.GetRandomFirstNames(true, true, 5).Count);
+        }
+
+        [TestMethod]
+        public void TestGetRandomLocation()
+        {
+            var owo = new Location
+            {
+                Longitude = rng.NextDouble() * 180 - 90,
+                Latitude = rng.NextDouble() * 360 - 180
+            };
+
+            var randomLocation = GetRandomLocation();
+            var uwu = JsonSerializer.Deserialize<Location>(randomLocation);
+
+            Assert.IsTrue(uwu.Longitude >= -90 && uwu.Longitude <= 90);
+            Assert.IsTrue(uwu.Latitude >= -180 && uwu.Latitude <= 180);
+        }
+
+        [TestMethod]
+        public void TestGetRandomLocation2()
+        {
+            var owo = new Location
+            {
+                Longitude = rng.NextDouble() * 180 - 90,
+                Latitude = rng.NextDouble() * 360 - 180
+            };
+
+            var randomLocation = GetRandomLocation();
+            var uwu = JsonSerializer.Deserialize<Location>(randomLocation);
+
+            Assert.AreEqual(owo.Longitude, uwu.Longitude, 0.001);
+            Assert.AreEqual(owo.Latitude, uwu.Latitude, 0.001);
         }
     }
 }

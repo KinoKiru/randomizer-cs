@@ -1,0 +1,30 @@
+﻿<div class="text-center mb-3">
+    <h1 class="mb-0">Random locatie generator</h1>
+    <small>Genereer een random locatie als json</small>
+    <small class="d-block"><i>Niels Rolleman</i></small>
+</div>
+
+<form method="get" onsubmit="return validate()" name="location" id="form" class="form-floating">
+    <div class="d-flex justify-content-center mt-3 row">
+        <button type="submit" class="btn btn-outline-dark" style="width: 39%">Submit</button>
+    </div>
+</form>
+
+<h1 id="owo" class="text-center mt-4"></h1>
+
+<script>
+    let form = document.forms["location"];
+
+    function validate() {
+        $.get(`http://localhost:5298/random_location`)
+            .done(function (data) {
+                $('#owo').text(data.value);
+                console.log(data.value);
+            }).catch((error) => $('#owo').text(error.statusText));
+
+        return false;
+    }
+
+
+</script>
+

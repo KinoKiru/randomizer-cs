@@ -1,6 +1,6 @@
 ﻿<div class="text-center mb-3">
     <h1 class="mb-0">Random tekst generator</h1>
-    <small>Genereer random lorum ipsum tekst</small>
+    <small>genereer random lorum ipsum tekst;</small>
     <small class="d-block"><i>Niels Rolleman</i></small>
 </div>
 
@@ -15,11 +15,13 @@
         <div class="form-floating" style="width: 15em">
             <div class="bootstrap-switch-square">
                 <input class="form-check-input" type="checkbox" value="" name="negative" id="formCheckChecked" checked="">
+                <label>Selecteer als je nederlandse tekst wil genereren</label>
             </div>
         </div>
         <div class="form-floating" style="width: 15em">
             <div class="bootstrap-switch-square">
                 <input class="form-check-input" type="checkbox" value="" name="negative1" id="formCheckChecked" checked="">
+                <label>Selecteer als je de tekst als html code wilt genereren</label>
             </div>
         </div>
     </div>
@@ -27,9 +29,7 @@
         <button type="submit" class="btn btn-outline-dark" style="width: 39%">Submit</button>
     </div>
 </form>
-<div class="d-flex text-center mt-4 flex-wrap w-100">
-    <p id="owo" style="word-break: break-all;" class="w-100"></p>
-</div>
+    <span id="owo" class="w-100 me-2"></span>
 <script>
     let form = document.forms["amount"];
     let startError = document.getElementById('amount_error');
@@ -50,7 +50,7 @@
         }
         else {
             if (form['amount'].value != "") {
-                $.post('http://localhost:5298/random_text', { amount: form['amount'].value, useEn: form["negative"].checked, useHtml: form["negative1"].checked })
+                $.get(`http://localhost:5298/random_text/${form['amount'].value}/${form["negative"].checked}/${form["negative1"].checked }`)
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);

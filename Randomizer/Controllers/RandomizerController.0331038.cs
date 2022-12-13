@@ -113,7 +113,7 @@ namespace Randomizer.Controllers
 
         public async Task<List<string>> GetRandomNames(List<string> names, string country, int amountOfNames)
         {
-            List<SelectListItem> countries = new List<SelectListItem>
+            List<SelectListItem> countries = new()
             {
                 new("Spanje", "SP"),
                 new("Italië", "IT"),

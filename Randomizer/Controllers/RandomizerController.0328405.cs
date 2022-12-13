@@ -15,5 +15,15 @@ namespace Randomizer.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult randomColor()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult randomLocation()
+        {
+            return View();
+        }
     }
 }

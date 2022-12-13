@@ -11,6 +11,8 @@ namespace Randomizer.Controllers
         private List<string> names = new();
         //private List<SelectListItem> countries = new();
         #endregion
+
+        #region RandomFirstNames
         /// <summary>Returns the default RandomFirstNames View</summary>
         /// <returns>
         ///   <br />
@@ -63,7 +65,9 @@ namespace Randomizer.Controllers
 
             return View("RandomFirstNames");
         }
+        #endregion
 
+        #region RandomNames
         /// <summary>Returns the default RandomNames View</summary>
         /// <returns>
         ///   <br />
@@ -157,5 +161,36 @@ namespace Randomizer.Controllers
             }
             return names;
         }
+        #endregion
+
+        #region GetRandomSeason
+        /// <summary>Returns the RandomSeason view</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public IActionResult RandomSeason()
+        {
+            return View();
+        }
+
+        /// <summary>Gets a random season.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        [HttpGet]
+        public IActionResult GetRandomSeason()
+        {
+            try
+            {
+                ViewBag.Season = Classes.Randomizer.GetRandomSeason();
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = e.Message;
+                throw;
+            }
+            return View("RandomSeason");
+        } 
+        #endregion
     }
 }

@@ -5,6 +5,7 @@ namespace Randomizer.Classes
 {
     public static partial class Randomizer
     {
+        #region RandomFirstNames
         /// <summary>Gets a random first names of boys/girls depending on your prefrences.</summary>
         /// <param name="boy">if set to <c>true</c> [boy].</param>
         /// <param name="girl">if set to <c>true</c> [girl].</param>
@@ -53,7 +54,9 @@ namespace Randomizer.Classes
                 throw new Exception(e.Message);
             }
         }
+        #endregion
 
+        #region RandomNames
         public static List<string> GetRandomNames(string country, int amountOfNames)
         {
             if (amountOfNames is < 1 or > 100)
@@ -102,5 +105,40 @@ namespace Randomizer.Classes
                 }
             }
         }
+        #endregion
+
+        #region RandomSeason
+        /// <summary>The available seasons</summary>
+        public enum Seasons
+        {
+            Spring,
+            Summer,
+            Autumn,
+            Winter
+        }
+        private static Seasons _lastSeason;
+        /// <summary>Gets a random season.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public static Seasons GetRandomSeason()
+        {
+            var seasons = Enum.GetValues(typeof(Seasons));
+            var previousSeason = _lastSeason;
+
+            var randomIndex = rng.Next(seasons.Length);
+            var randomSeason = (Seasons)seasons.GetValue(randomIndex);
+
+            while (randomSeason == previousSeason)
+            {
+                randomIndex = rng.Next(seasons.Length);
+                randomSeason = (Seasons)seasons.GetValue(randomIndex);
+            }
+
+            _lastSeason = randomSeason;
+
+            return randomSeason;
+        }
+        #endregion
     }
 }

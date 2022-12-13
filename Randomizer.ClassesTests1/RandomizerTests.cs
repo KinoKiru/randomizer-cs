@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Text.Json;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Randomizer.Classes.Randomizer;
 
 namespace Randomizer.Classes.Tests
@@ -68,12 +68,12 @@ namespace Randomizer.Classes.Tests
         {
             List<int> owo = RandomDice(10000);
             int i = 0;
-            if (owo.Contains(1)) { i = i + 1; }
-            if (owo.Contains(2)) { i = i + 1; }
-            if (owo.Contains(3)) { i = i + 1; }
-            if (owo.Contains(4)) { i = i + 1; }
-            if (owo.Contains(5)) { i = i + 1; }
-            if (owo.Contains(6)) { i = i + 1; }
+            if (owo.Contains(1)) { i++; }
+            if (owo.Contains(2)) { i++; }
+            if (owo.Contains(3)) { i++; }
+            if (owo.Contains(4)) { i++; }
+            if (owo.Contains(5)) { i++; }
+            if (owo.Contains(6)) { i++; }
             Assert.AreEqual(i, 6);
 
         }
@@ -124,6 +124,13 @@ namespace Randomizer.Classes.Tests
         }
 
         [TestMethod]
+        public void GetRandomNamesNoCountrySelected()
+        {
+            var ex = Assert.ThrowsException<ArgumentException>(() => GetRandomNames("Selecteer een land", 5));
+            Assert.AreEqual("No country was selected.", ex.Message);
+        }
+
+        [TestMethod]
         public void GetRandomNamesValid()
         {
             Assert.AreEqual(5, GetRandomNames("SP", 5).Count);
@@ -142,8 +149,8 @@ namespace Randomizer.Classes.Tests
             var randomLocation = GetRandomLocation();
             var uwu = JsonSerializer.Deserialize<Location>(randomLocation);
 
-            Assert.IsTrue(uwu.Longitude >= -90 && uwu.Longitude <= 90);
-            Assert.IsTrue(uwu.Latitude >= -180 && uwu.Latitude <= 180);
+            Assert.IsTrue(uwu.Longitude is >= -90 and <= 90);
+            Assert.IsTrue(uwu.Latitude is >= -180 and <= 180);
         }
     }
 }

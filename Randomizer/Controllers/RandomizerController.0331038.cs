@@ -84,7 +84,7 @@ namespace Randomizer.Controllers
         [HttpGet]
         public async Task<IActionResult> GetRandomNames(string? country, int amountOfNames)
         {
-            if (country == null)
+            if (country == null || country.Length != 2)
             {
                 try
                 {
@@ -95,8 +95,7 @@ namespace Randomizer.Controllers
                     ViewBag.Error = ex.Message;
                 }
             }
-
-            else if (country.Length != 2) return View("RandomNames");
+            else
             {
                 try
                 {
@@ -121,6 +120,13 @@ namespace Randomizer.Controllers
                 new("Polen", "PL"),
                 new("Duitsland", "GE")
             };
+            ViewBag.Countries = countries;
+
+            if (country == "Selecteer een land")
+            {
+                ViewBag.AmountOfNames = amountOfNames;
+                throw new ArgumentException("No country was selected.");
+            }
 
             bool valid = false;
             foreach (SelectListItem value in countries)
@@ -149,8 +155,6 @@ namespace Randomizer.Controllers
                 ViewBag.AmountOfNames = amountOfNames;
                 ViewBag.Names = names;
             }
-
-            ViewBag.Countries = countries;
             return names;
         }
     }

@@ -61,9 +61,13 @@ namespace Randomizer.Classes
                 throw new ArgumentException("The number of given names must be at least 1.");
             }
 
-            if (string.IsNullOrEmpty(country) || country.Length != 2)
+            if (string.IsNullOrEmpty(country) || country.Length != 2 && country != "Selecteer een land")
             {
                 throw new ArgumentException("The given country is not supported, please use country codes like SP, IT, GE, etc.");
+            }
+            if (country == "Selecteer een land")
+            {
+                throw new ArgumentException("No country was selected.");
             }
 
             SqlConnection conn = new SqlConnection("Server=.;Database=RandomizerDB;Trusted_Connection=True;");

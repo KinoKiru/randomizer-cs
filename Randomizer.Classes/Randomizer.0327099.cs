@@ -99,7 +99,7 @@
                 throw new ArgumentException("Kan geen wachtwoord maken als je geen opties open houd :)");
             }
 
-            for (int i = 0; i <= length; i++)
+            for (int i = 0; i < length; i++)
             {
                 int index = rng.Next(0, possibles.Length);
                 password += possibles[index];

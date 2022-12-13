@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Randomizer.Classes.Randomizer;
 
 namespace Randomizer.Classes.Tests
@@ -149,51 +148,19 @@ namespace Randomizer.Classes.Tests
             Assert.AreEqual(owo.Latitude, uwu.Latitude, 0.001);
         }
 
-        [TestMethod()]
-        public void getImageTest()
-        {
-            var owo = Randomizer.getImage(true, true);
-            var uwu = System.Text.Encoding.Default.GetString(owo);
+        //[TestMethod()]
+        //public void getImageTest()
+        //{
+        //    var owo = Randomizer.getImage(true, true);
+        //    var uwu = System.Text.Encoding.Default.GetString(owo);
 
-            while (!uwu.Contains("joker"))
-            {
-                owo = Randomizer.getImage(true, true);
-                uwu = System.Text.Encoding.Default.GetString(owo);
-            }
+        //    while (!uwu.Contains("joker"))
+        //    {
+        //        owo = Randomizer.getImage(true, true);
+        //        uwu = System.Text.Encoding.Default.GetString(owo);
+        //    }
 
-            Assert.IsTrue(uwu.Contains("joker"));
-        }
-
-        [TestMethod]
-        public void TestGetRandomLocation()
-        {
-            var owo = new Location
-            {
-                Longitude = rng.NextDouble() * 180 - 90,
-                Latitude = rng.NextDouble() * 360 - 180
-            };
-
-            var randomLocation = GetRandomLocation();
-            var uwu = JsonSerializer.Deserialize<Location>(randomLocation);
-
-            Assert.IsTrue(uwu.Longitude >= -90 && uwu.Longitude <= 90);
-            Assert.IsTrue(uwu.Latitude >= -180 && uwu.Latitude <= 180);
-        }
-
-        [TestMethod]
-        public void TestGetRandomLocation2()
-        {
-            var owo = new Location
-            {
-                Longitude = rng.NextDouble() * 180 - 90,
-                Latitude = rng.NextDouble() * 360 - 180
-            };
-
-            var randomLocation = GetRandomLocation();
-            var uwu = JsonSerializer.Deserialize<Location>(randomLocation);
-
-            Assert.AreEqual(owo.Longitude, uwu.Longitude, 0.001);
-            Assert.AreEqual(owo.Latitude, uwu.Latitude, 0.001);
-        }
+        //    Assert.IsTrue(uwu.Contains("joker"));
+        //}
     }
 }

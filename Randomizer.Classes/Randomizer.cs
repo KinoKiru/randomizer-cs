@@ -2,6 +2,6 @@
 {
     public static partial class Randomizer
     {
-        private static Random rng = new Random();
+        private static Random rng = new();
     }
 }

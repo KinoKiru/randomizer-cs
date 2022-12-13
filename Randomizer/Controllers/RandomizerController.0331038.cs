@@ -1,11 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace Randomizer.Controllers
 {
     public partial class RandomizerController
     {
-        /// <summary>Randoms the default RandomFirstNames view</summary>
+        #region Private Fields
+        private List<string> names = new();
+        //private List<SelectListItem> countries = new();
+        #endregion
+        /// <summary>Returns the default RandomFirstNames View</summary>
         /// <returns>
         ///   <br />
         /// </returns>
@@ -56,6 +62,100 @@ namespace Randomizer.Controllers
             }
 
             return View("RandomFirstNames");
+        }
+
+        /// <summary>Returns the default RandomNames View</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public async Task<IActionResult> RandomNames(string country)
+        {
+            try
+            {
+                await GetRandomNames(names, country, 0);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetRandomNames(string? country, int amountOfNames)
+        {
+            if (country == null || country.Length != 2)
+            {
+                try
+                {
+                    await GetRandomNames(names, country, amountOfNames);
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Error = ex.Message;
+                }
+            }
+            else
+            {
+                try
+                {
+                    await GetRandomNames(names, country, amountOfNames);
+                    ViewBag.Selected = country;
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Error = ex.Message;
+                }
+            }
+            return View("RandomNames");
+        }
+
+        public async Task<List<string>> GetRandomNames(List<string> names, string country, int amountOfNames)
+        {
+            List<SelectListItem> countries = new()
+            {
+                new("Spanje", "SP"),
+                new("Italië", "IT"),
+                new("Griekenland", "GR"),
+                new("Polen", "PL"),
+                new("Duitsland", "GE")
+            };
+            ViewBag.Countries = countries;
+
+            if (country == "Selecteer een land")
+            {
+                ViewBag.AmountOfNames = amountOfNames;
+                throw new ArgumentException("No country was selected.");
+            }
+
+            bool valid = false;
+            foreach (SelectListItem value in countries)
+            {
+                if (value.Value == country)
+                {
+                    value.Selected = true;
+                    valid = true;
+                    break;
+                }
+            }
+
+            if (!valid && country != null)
+            {
+                throw new ArgumentException("The given country is not supported, please use country codes like SP, IT, GE, etc.");
+            }
+
+            if (country != null)
+            {
+                using var httpClient = new HttpClient();
+                using var response =
+                    await httpClient.GetAsync(
+                        $"https://localhost:7298/random_names/{country}/{amountOfNames}");
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                names = JsonConvert.DeserializeObject<List<string>>(apiResponse);
+                ViewBag.AmountOfNames = amountOfNames;
+                ViewBag.Names = names;
+            }
+            return names;
         }
     }
 }

@@ -4,7 +4,7 @@ namespace Randomizer.Controllers
 {
     public partial class RandomizerController : Controller
     {
-        static HttpClient client = new HttpClient();
+        static HttpClient client = new();
 
 
         static void Main()

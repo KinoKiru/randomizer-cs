@@ -49,9 +49,14 @@
         /// <returns>
         ///   <br />
         /// </returns>
-        public static Byte[] getImage(bool includeJokers)
+        public static Byte[] getImage(bool includeJokers, bool isUnitTest = false)
         {
-            var uwu = Directory.GetParent(Directory.GetCurrentDirectory()).FullName + "\\Randomizer\\Recources\\Cards\\PNG-cards-1.3\\";
+            var uwu = Directory.GetCurrentDirectory() + "\\Recources\\Cards\\PNG-cards-1.3\\";
+            if (isUnitTest)
+            {
+                uwu = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent + "\\Recources\\Cards\\PNG-cards-1.3\\";
+            }
+
             string[] files = Directory.GetFiles(uwu, "*.png");
             string path = files[rng.Next(files.Length)];
             if (includeJokers == false)
@@ -94,7 +99,7 @@
                 throw new ArgumentException("Kan geen wachtwoord maken als je geen opties open houd :)");
             }
 
-            for (int i = 0; i <= length; i++)
+            for (int i = 0; i < length; i++)
             {
                 int index = rng.Next(0, possibles.Length);
                 password += possibles[index];

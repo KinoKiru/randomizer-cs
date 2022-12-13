@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 
 namespace Randomizer.Classes.Tests
@@ -148,12 +149,12 @@ namespace Randomizer.Classes.Tests
         [TestMethod()]
         public void getImageTest()
         {
-            var owo = Randomizer.getImage(true);
+            var owo = Randomizer.getImage(true, true);
             var uwu = System.Text.Encoding.Default.GetString(owo);
 
             while (!uwu.Contains("joker"))
             {
-                owo = Randomizer.getImage(true);
+                owo = Randomizer.getImage(true, true);
                 uwu = System.Text.Encoding.Default.GetString(owo);
             }
 

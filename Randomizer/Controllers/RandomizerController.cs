@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Randomizer.Controllers
+﻿namespace Randomizer.Controllers
 {
     public partial class RandomizerController
     {

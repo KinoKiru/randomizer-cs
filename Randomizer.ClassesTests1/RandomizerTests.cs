@@ -162,5 +162,13 @@ namespace Randomizer.Classes.Tests
                 Assert.IsInstanceOfType(GetRandomSeason(), typeof(Seasons));
             }
         }
+
+        [TestMethod]
+        public void TestGetRandomTimeValid()
+        {
+            var result = GetRandomTime();
+            Assert.IsNotNull(result.Hours & result.Minutes & result.Minutes);
+            Assert.IsInstanceOfType(result, typeof(Time));
+        }
     }
 }

@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Random Time";
+
+    if (ViewBag.Error != null)
+    {
+        <h1 class="text-bg-danger">@ViewBag.Error</h1>
+    }
+}
+
+<div class="text-center mb-3">
+    <h1 class="mb-0">Random Tijd generator</h1>
+    <small>Genereer een willekeurige tijd</small>
+    <small class="d-block"><i>Youri Blanckenborg</i></small>
+</div>
+<form method="get" asp-action="GetRandomTime">
+    <div class="d-flex justify-content-center mt-3 row">
+        <button type="submit" class="btn btn-outline-dark" style="width: 39%">Genereer</button>
+    </div>
+</form>
+
+@if (ViewBag.Time != null)
+{
+    <table class="table">
+            <tr>
+                <th>Uren</th>
+                <td>@ViewBag.Time.Hours</td>
+            </tr>
+            <tr>
+                <th>Minuten</th>
+                <td>@ViewBag.Time.Minutes</td>
+            </tr>
+            <tr>
+                <th>Seconden</th>
+                <td>@ViewBag.Time.Seconds</td>
+            </tr>
+    </table>
+}

@@ -11,7 +11,7 @@ namespace Randomizer.API.Controllers
         [HttpGet("random_dice")]
         public IResult defaultRandomDice()
         {
-           return Results.Ok(Classes.Randomizer.RandomDice(1));
+            return Results.Ok(Classes.Randomizer.RandomDice(1));
         }
 
         /// <summary>Randoms the dice with parameters.</summary>
@@ -25,9 +25,10 @@ namespace Randomizer.API.Controllers
             try
             {
                 return Results.Ok(Classes.Randomizer.RandomDice(amount));
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
-               return Results.Problem(e.Message);
+                return Results.Problem(e.Message);
             }
         }
 
@@ -72,7 +73,8 @@ namespace Randomizer.API.Controllers
             try
             {
                 return Results.Ok(Classes.Randomizer.RandomColor(knowColor));
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 return Results.Problem(e.Message);
             }
@@ -88,7 +90,8 @@ namespace Randomizer.API.Controllers
             try
             {
                 return Results.Ok(Classes.Randomizer.GetRandomLocation());
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 return Results.Problem(e.Message);
             }

@@ -152,5 +152,23 @@ namespace Randomizer.Classes.Tests
             Assert.IsTrue(uwu.Longitude is >= -90 and <= 90);
             Assert.IsTrue(uwu.Latitude is >= -180 and <= 180);
         }
+
+        /// <summary>Generate a random season 10 times and test if the random season is of the same enum type.</summary>
+        [TestMethod]
+        public void TestGetRandomSeasonReturnsEnum()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Assert.IsInstanceOfType(GetRandomSeason(), typeof(Seasons));
+            }
+        }
+
+        [TestMethod]
+        public void TestGetRandomTimeValid()
+        {
+            var result = GetRandomTime();
+            Assert.IsNotNull(result.Hours & result.Minutes & result.Minutes);
+            Assert.IsInstanceOfType(result, typeof(Time));
+        }
     }
 }

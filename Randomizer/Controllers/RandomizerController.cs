@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Randomizer.Controllers
+﻿namespace Randomizer.Controllers
 {
-    public partial class RandomizerController : Controller
+    public partial class RandomizerController
     {
         static HttpClient client = new();
 

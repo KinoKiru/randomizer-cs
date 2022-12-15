@@ -28,7 +28,7 @@ app.UseCors(x => x
                   .AllowAnyHeader()
                   .WithOrigins("https://localhost:7031")
                   .SetIsOriginAllowed(origin => true) //allow any origin
-                  //.WithOrigins("https://localhost:44351")); // Allow only this origin can also have multiple origins separated with comma
+                                                      //.WithOrigins("https://localhost:44351")); // Allow only this origin can also have multiple origins separated with comma
                   .AllowCredentials());
 
 

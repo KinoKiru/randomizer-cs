@@ -5,7 +5,8 @@ namespace Randomizer.Classes
 {
     public static partial class Randomizer
     {
-        /// <summary>Gets a random first names of boys/girls depending on your prefrences.</summary>
+        #region RandomFirstNames
+        /// <summary>Gets a list of random first names of boys/girls depending on your prefrences.</summary>
         /// <param name="boy">if set to <c>true</c> [boy].</param>
         /// <param name="girl">if set to <c>true</c> [girl].</param>
         /// <param name="amountOfNames">The amount of names.</param>
@@ -53,7 +54,23 @@ namespace Randomizer.Classes
                 throw new Exception(e.Message);
             }
         }
+        #endregion
 
+        #region RandomNames
+        /// <summary>Gets a list of random names.</summary>
+        /// <param name="country">The country.</param>
+        /// <param name="amountOfNames">The amount of names.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.ArgumentException">
+        /// The number of given names must be at least 1.
+        /// or
+        /// The given country is not supported, please use country codes like SP, IT, GE, etc.
+        /// or
+        /// No country was selected.
+        /// </exception>
+        /// <exception cref="System.Exception"></exception>
         public static List<string> GetRandomNames(string country, int amountOfNames)
         {
             if (amountOfNames is < 1 or > 100)
@@ -102,5 +119,55 @@ namespace Randomizer.Classes
                 }
             }
         }
+        #endregion
+
+        #region RandomSeason
+        /// <summary>The available seasons</summary>
+        public enum Seasons
+        {
+            Spring,
+            Summer,
+            Autumn,
+            Winter
+        }
+        private static Seasons _lastSeason;
+        /// <summary>Gets a random season.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public static Seasons GetRandomSeason()
+        {
+            try
+            {
+                var seasons = Enum.GetValues(typeof(Seasons));
+                var randomSeason = (Seasons)seasons.GetValue(rng.Next(seasons.Length));
+
+                return randomSeason;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        #endregion
+
+        #region RandomTime
+        /// <summary>Gets a random time.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.Exception"></exception>
+        public static Time GetRandomTime()
+        {
+            try
+            {
+                return new Time(rng.Next(1, 24 * 3600));
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        #endregion
     }
 }

@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
-using System.Globalization;
+using Randomizer.Classes;
+using static Randomizer.Classes.Randomizer;
 
 namespace Randomizer.Controllers
 {
@@ -11,6 +12,8 @@ namespace Randomizer.Controllers
         private List<string> names = new();
         //private List<SelectListItem> countries = new();
         #endregion
+
+        #region RandomFirstNames
         /// <summary>Returns the default RandomFirstNames View</summary>
         /// <returns>
         ///   <br />
@@ -49,21 +52,30 @@ namespace Randomizer.Controllers
                 return View("RandomFirstNames");
             }
 
-            using (var response =
-                   await httpClient.GetAsync(
-                       $"https://localhost:7298/random_firstnames/{boy}/{girl}/{amountOfNames}"))
+            try
             {
-                string apiResponse = await response.Content.ReadAsStringAsync();
-                var answer = JsonConvert.DeserializeObject<List<string>>(apiResponse);
-                ViewBag.Boy = boy;
-                ViewBag.Girl = girl;
-                ViewBag.AmountOfNames = amountOfNames;
-                ViewBag.Response = answer;
+                using (var response =
+                           await httpClient.GetAsync(
+                               $"https://localhost:7298/random_firstnames/{boy}/{girl}/{amountOfNames}"))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    var answer = JsonConvert.DeserializeObject<List<string>>(apiResponse);
+                    ViewBag.Boy = boy;
+                    ViewBag.Girl = girl;
+                    ViewBag.AmountOfNames = amountOfNames;
+                    ViewBag.Response = answer;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
 
             return View("RandomFirstNames");
         }
+        #endregion
 
+        #region RandomNames
         /// <summary>Returns the default RandomNames View</summary>
         /// <returns>
         ///   <br />
@@ -81,6 +93,12 @@ namespace Randomizer.Controllers
             return View();
         }
 
+        /// <summary>Gets random names and returns them to the view.</summary>
+        /// <param name="country">The country.</param>
+        /// <param name="amountOfNames">The amount of names.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         [HttpGet]
         public async Task<IActionResult> GetRandomNames(string? country, int amountOfNames)
         {
@@ -110,6 +128,16 @@ namespace Randomizer.Controllers
             return View("RandomNames");
         }
 
+        /// <summary>Gets random names from database.</summary>
+        /// <param name="names">The names.</param>
+        /// <param name="country">The country.</param>
+        /// <param name="amountOfNames">The amount of names.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.ArgumentException">No country was selected.
+        /// or
+        /// The given country is not supported, please use country codes like SP, IT, GE, etc.</exception>
         public async Task<List<string>> GetRandomNames(List<string> names, string country, int amountOfNames)
         {
             List<SelectListItem> countries = new()
@@ -157,5 +185,77 @@ namespace Randomizer.Controllers
             }
             return names;
         }
+        #endregion
+
+        #region GetRandomSeason
+        /// <summary>Returns the RandomSeason view</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public IActionResult RandomSeason()
+        {
+            return View();
+        }
+
+        /// <summary>Gets a random season.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        [HttpGet]
+        public async Task<IActionResult> GetRandomSeason()
+        {
+            try
+            {
+                using var httpClient = new HttpClient();
+                using var response =
+                await httpClient.GetAsync(
+                        $"https://localhost:7298/random_season/");
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                var season = JsonConvert.DeserializeObject<Seasons>(apiResponse);
+                ViewBag.Season = season;
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = e.Message;
+                throw;
+            }
+            return View("RandomSeason");
+        }
+        #endregion
+
+        #region RandomTime
+
+        /// <summary>Returns a plain RandomTime view</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public IActionResult RandomTime()
+        {
+            return View();
+        }
+        /// <summary>Gets a random time and sends it to the RandomTime view.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.Exception"></exception>
+        public async Task<IActionResult> GetRandomTime()
+        {
+            try
+            {
+                using var httpClient = new HttpClient();
+                using var response =
+                await httpClient.GetAsync(
+                        $"https://localhost:7298/random_time/");
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                var time = JsonConvert.DeserializeObject<Time>(apiResponse);
+                ViewBag.Time = time;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return View("RandomTime");
+        }
+        #endregion
     }
 }

@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Drawing;
 using System.Text.Json;
-using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 namespace Randomizer.Classes
 {
     public static partial class Randomizer
@@ -24,7 +17,8 @@ namespace Randomizer.Classes
                     list.Add(rng.Next(1, 7));
                 }
                 return list;
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
@@ -51,14 +45,15 @@ namespace Randomizer.Classes
                     if (generateAsHtml)
                     {
                         result += "<p>" + paragraph + "</p>";
-                    } 
+                    }
                     else
                     {
                         result += paragraph;
                     }
                 }
                 return result;
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }

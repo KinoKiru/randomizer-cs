@@ -191,5 +191,21 @@ namespace Randomizer.Classes.Tests
 
             Assert.IsTrue(Color.FromName(owo).IsKnownColor);
         }
+
+        [TestMethod]
+        public void GetRandomTekstTest()
+        {
+            var owo = Randomizer.GenerateRandomText(1, false, false);
+
+            Assert.IsTrue(owo is string);
+        }
+
+        [TestMethod]
+        public void GetRandomTekstTest2()
+        {
+            var owo = Randomizer.GenerateRandomText(1, false, true);
+
+            Assert.IsTrue(owo.Contains("<p>"));
+        }
     }
 }

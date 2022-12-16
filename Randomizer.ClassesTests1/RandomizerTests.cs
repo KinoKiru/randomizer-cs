@@ -1,7 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Drawing;
+using System.Linq;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using static Randomizer.Classes.Randomizer;
 
 namespace Randomizer.Classes.Tests
@@ -169,6 +173,23 @@ namespace Randomizer.Classes.Tests
             var result = GetRandomTime();
             Assert.IsNotNull(result.Hours & result.Minutes & result.Minutes);
             Assert.IsInstanceOfType(result, typeof(Time));
+        }
+
+        [TestMethod]
+        public void GetRandomColorTest()
+        {
+            var owo = Randomizer.RandomColor(false);
+            Regex uwu = new Regex("^#(?:[0-9a-fA-F]{3}){1,2}$");
+            Assert.IsTrue(uwu.IsMatch(owo));
+           
+        }
+
+        [TestMethod]
+        public void GetRandomKnownColorTest()
+        {
+            var owo = Randomizer.RandomColor(true);
+
+            Assert.IsTrue(Color.FromName(owo).IsKnownColor);
         }
     }
 }

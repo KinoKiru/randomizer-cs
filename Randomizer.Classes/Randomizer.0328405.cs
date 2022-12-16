@@ -70,7 +70,7 @@ namespace Randomizer.Classes
                 return randomColor.Name;
             }
             Color myColor = Color.FromArgb(rng.Next(0, 256), rng.Next(0, 256), rng.Next(0, 256));
-            string hex = myColor.R.ToString("X2") + myColor.G.ToString("X2") + myColor.B.ToString("X2");
+            string hex = "#" + myColor.R.ToString("X2") + myColor.G.ToString("X2") + myColor.B.ToString("X2");
             return hex;
         }
         public struct Location

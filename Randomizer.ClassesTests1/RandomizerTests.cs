@@ -203,8 +203,8 @@ namespace Randomizer.Classes.Tests
         public void generatePasswordTest()
         {
             var result = Randomizer.generatePassword(2, 4, 1, 0);
-            var uwu = Regex.Matches(result, "^(?=.*[a-zA-Z])(?=.*[0-9])");
-            Assert.IsTrue(uwu);
+            var uwu = new Regex("^(?=.*[a-zA-Z])(?=.*[0-9])");
+            Assert.IsTrue(uwu.IsMatch(result));
         }
 
         //[TestMethod()]

@@ -10,16 +10,24 @@
     </div>
 </form>
 
-<h1 id="owo" class="text-center mt-4"></h1>
-
+<h2 id="owo" class="text-center mt-4"></h2>
+    <div style="margin-left: 350px">
+        <iframe
+                id="uwu"
+                width="600"
+                height="450"
+                frameborder="0" style="border:0"
+                allowfullscreen>
+        </iframe>
+    </div>
 <script>
     let form = document.forms["location"];
 
     function validate() {
         $.get(`http://localhost:5298/random_location`)
             .done(function (data) {
-                $('#owo').text(data.value);
-                console.log(data.value);
+                    $('#owo').text("latitude: " + data.value.latitude + " longitude: " + data.value.longitude);
+                    $('#uwu').attr('src', `https://www.google.com/maps/embed/v1/place?key=AIzaSyD6w1gRct44p-imclQVW55W4G1Y_Ewl_9Y&q=${data.value.latitude},${data.value.longitude}`)
             }).catch((error) => $('#owo').text(error.statusText));
 
         return false;

@@ -17,6 +17,7 @@
 </form>
 
 <h1 id="owo" class="text-center mt-4"></h1>
+<div id="uwu" class="m-auto" style="width: 200px; height: 200px;"></div>
 
 <script>
     let form = document.forms["color"];
@@ -24,13 +25,13 @@
     function validate() {
         $.get(`http://localhost:5298/random_color/${form['negative'].checked}`)
             .done(function (data) {
+                $('#uwu').css("backgroundColor", data.value);
                 $('#owo').text(data.value);
                 console.log(data.value);
             }).catch((error) => $('#owo').text(error.statusText));
 
         return false;
     }
-
 
 </script>
 

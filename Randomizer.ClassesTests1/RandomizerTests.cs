@@ -1,22 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text.Json;
-using System.Text.RegularExpressions;
-using static Randomizer.Classes.Randomizer;
-
-namespace Randomizer.Classes.Tests
+﻿namespace Randomizer.Classes.Tests
 {
     [TestClass]
     public class RandomizerTests
     {
 
-        private static readonly Random rng = new Random();
+        private static readonly Random rng = new();
 
         [TestMethod]
         public void GetRandomDateTest()
         {
-            DateTime owo = Randomizer.GetRandomDate();
+            DateTime owo = GetRandomDate();
             Console.Write(owo);
             Assert.IsNotNull(owo);
         }
@@ -24,7 +17,7 @@ namespace Randomizer.Classes.Tests
         [TestMethod]
         public void GetRandomDateWithStartTest()
         {
-            DateTime owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4));
+            DateTime owo = GetRandomDate(new DateTime(2000, 10, 4));
             Console.Write(owo);
             Assert.IsNotNull(owo);
         }
@@ -32,7 +25,7 @@ namespace Randomizer.Classes.Tests
         [TestMethod]
         public void GetRandomDateWithStartAndEndTest()
         {
-            DateTime owo = Randomizer.GetRandomDate(new DateTime(2000, 10, 4), new DateTime(2010, 9, 2));
+            DateTime owo = GetRandomDate(new DateTime(2000, 10, 4), new DateTime(2010, 9, 2));
             Console.Write(owo);
             Assert.IsNotNull(owo);
         }
@@ -41,57 +34,56 @@ namespace Randomizer.Classes.Tests
         [TestMethod()]
         public void GetRandomIntTest()
         {
-            int owo = Randomizer.GetRandomInt(false);
+            int owo = GetRandomInt(false);
             Assert.IsTrue(owo > 0);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void getRandomNegativeTest()
         {
-            int owo = Randomizer.GetRandomInt(true);
+            int owo = GetRandomInt(true);
             while (owo > 0)
             {
-                owo = Randomizer.GetRandomInt(true);
+                owo = GetRandomInt(true);
             }
             Assert.IsTrue(owo < 0);
         }
 
-
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDiceRollsTest()
         {
-            List<int> owo = Randomizer.RandomDice(10);
+            List<int> owo = RandomDice(10);
             Console.Write(owo);
             Assert.AreEqual(10, owo.Count);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetRandomDiceRollsTest2()
         {
-            List<int> owo = Randomizer.RandomDice(10000);
+            List<int> owo = RandomDice(10000);
             int i = 0;
-            if (owo.Contains(1)) { i = i + 1; }
-            if (owo.Contains(2)) { i = i + 1; }
-            if (owo.Contains(3)) { i = i + 1; }
-            if (owo.Contains(4)) { i = i + 1; }
-            if (owo.Contains(5)) { i = i + 1; }
-            if (owo.Contains(6)) { i = i + 1; }
+            if (owo.Contains(1)) { i++; }
+            if (owo.Contains(2)) { i++; }
+            if (owo.Contains(3)) { i++; }
+            if (owo.Contains(4)) { i++; }
+            if (owo.Contains(5)) { i++; }
+            if (owo.Contains(6)) { i++; }
             Assert.AreEqual(i, 6);
 
         }
 
-        [TestMethod()]
+        [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void GetRandomDiceRollsTestException()
         {
-            Randomizer.RandomDice(0);
+            RandomDice(0);
         }
 
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void GetRandomDiceRollsTestException2()
         {
-            Randomizer.RandomDice(10001);
+            RandomDice(10001);
 
         }
 
@@ -99,7 +91,7 @@ namespace Randomizer.Classes.Tests
         public void GetRandomFirstNamesTestInvalidAmount()
         {
             var ex =
-                Assert.ThrowsException<ArgumentException>(() => Randomizer.GetRandomFirstNames(true, false, -2));
+                Assert.ThrowsException<ArgumentException>(() => GetRandomFirstNames(true, false, -2));
             Assert.AreEqual("The number of given names must be at least 1.", ex.Message);
         }
 
@@ -107,14 +99,36 @@ namespace Randomizer.Classes.Tests
         public void GetRandomFirstNamesTestInvalidBoolOptions()
         {
             var ex =
-                Assert.ThrowsException<ArgumentException>(() => Randomizer.GetRandomFirstNames(false, false, 3));
+                Assert.ThrowsException<ArgumentException>(() => GetRandomFirstNames(false, false, 3));
             Assert.AreEqual("At least one of the boy/girl booleans must be true.", ex.Message);
         }
 
         [TestMethod]
         public void GetRandomFirstNamesTestValid()
         {
-            Assert.AreEqual(5, Randomizer.GetRandomFirstNames(true, true, 5).Count);
+            Assert.AreEqual(5, GetRandomFirstNames(true, true, 5).Count);
+            Assert.IsInstanceOfType(GetRandomNames("SP", 5), typeof(List<string>));
+        }
+
+        [TestMethod]
+        public void GetRandomNamesInvalidCountry()
+        {
+            var ex = Assert.ThrowsException<ArgumentException>(() => GetRandomNames("Netherlands", 5));
+            Assert.AreEqual("The given country is not supported, please use country codes like SP, IT, GE, etc.", ex.Message);
+        }
+
+        [TestMethod]
+        public void GetRandomNamesNoCountrySelected()
+        {
+            var ex = Assert.ThrowsException<ArgumentException>(() => GetRandomNames("Selecteer een land", 5));
+            Assert.AreEqual("No country was selected.", ex.Message);
+        }
+
+        [TestMethod]
+        public void GetRandomNamesValid()
+        {
+            Assert.AreEqual(5, GetRandomNames("SP", 5).Count);
+            Assert.IsInstanceOfType(GetRandomNames("SP", 5), typeof(List<string>));
         }
 
         [TestMethod]
@@ -129,26 +143,52 @@ namespace Randomizer.Classes.Tests
             var randomLocation = GetRandomLocation();
             var uwu = JsonSerializer.Deserialize<Location>(randomLocation);
 
-            Assert.IsTrue(uwu.Longitude >= -90 && uwu.Longitude <= 90);
-            Assert.IsTrue(uwu.Latitude >= -180 && uwu.Latitude <= 180);
+            Assert.IsTrue(uwu.Longitude is >= -90 and <= 90);
+            Assert.IsTrue(uwu.Latitude is >= -180 and <= 180);
+        }
+
+        /// <summary>Generate a random season 10 times and test if the random season is of the same enum type.</summary>
+        [TestMethod]
+        public void TestGetRandomSeasonReturnsEnum()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Assert.IsInstanceOfType(GetRandomSeason(), typeof(Seasons));
+            }
         }
 
         [TestMethod]
-        public void TestGetRandomLocation2()
+        public void TestGetRandomTimeValid()
         {
-            var owo = new Location
-            {
-                Longitude = rng.NextDouble() * 180 - 90,
-                Latitude = rng.NextDouble() * 360 - 180
-            };
-
-            var randomLocation = GetRandomLocation();
-            var uwu = JsonSerializer.Deserialize<Location>(randomLocation);
-
-            Assert.AreEqual(owo.Longitude, uwu.Longitude, 0.001);
-            Assert.AreEqual(owo.Latitude, uwu.Latitude, 0.001);
+            var result = GetRandomTime();
+            Assert.IsNotNull(result.Hours & result.Minutes & result.Minutes);
+            Assert.IsInstanceOfType(result, typeof(Time));
         }
 
+        [TestMethod]
+        public void GetRandomColorTest()
+        {
+            var owo = Randomizer.RandomColor(false);
+            Regex uwu = new Regex("^#(?:[0-9a-fA-F]{3}){1,2}$");
+            Assert.IsTrue(uwu.IsMatch(owo));
+
+        }
+
+        [TestMethod]
+        public void GetRandomKnownColorTest()
+        {
+            var owo = Randomizer.RandomColor(true);
+
+            Assert.IsTrue(Color.FromName(owo).IsKnownColor);
+        }
+
+        [TestMethod]
+        public void GetRandomTekstTest()
+        {
+            var owo = Randomizer.GenerateRandomText(1, false, false);
+
+            Assert.IsTrue(owo is string);
+        }
         [TestMethod()]
         public void generatePasswordTest()
         {
@@ -163,13 +203,12 @@ namespace Randomizer.Classes.Tests
         //    var owo = Randomizer.getImage(true, true);
         //    var uwu = System.Text.Encoding.Default.GetString(owo);
 
-        //    while (!uwu.Contains("joker"))
-        //    {
-        //        owo = Randomizer.getImage(true, true);
-        //        uwu = System.Text.Encoding.Default.GetString(owo);
-        //    }
+        [TestMethod]
+        public void GetRandomTekstTest2()
+        {
+            var owo = Randomizer.GenerateRandomText(1, false, true);
 
-        //    Assert.IsTrue(uwu.Contains("joker"));
-        //}
+            Assert.IsTrue(owo.Contains("<p>"));
+        }
     }
 }

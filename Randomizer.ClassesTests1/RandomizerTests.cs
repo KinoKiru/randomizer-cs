@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using static Randomizer.Classes.Randomizer;
 
 namespace Randomizer.Classes.Tests
@@ -146,6 +147,14 @@ namespace Randomizer.Classes.Tests
 
             Assert.AreEqual(owo.Longitude, uwu.Longitude, 0.001);
             Assert.AreEqual(owo.Latitude, uwu.Latitude, 0.001);
+        }
+
+        [TestMethod()]
+        public void generatePasswordTest()
+        {
+            var result = Randomizer.generatePassword(2, 4, 1, 0);
+            var uwu = Regex.Matches(result, "^(?=.*[a-zA-Z])(?=.*[0-9])");
+            Assert.IsTrue(uwu);
         }
 
         //[TestMethod()]

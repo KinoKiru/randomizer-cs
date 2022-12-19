@@ -101,7 +101,8 @@ namespace Randomizer.Classes
                 List<string> names = new();
                 while (dr.Read())
                 {
-                    names.Add((string)dr["LastName"]);
+                    var name = (string)dr["FirstName"] + " " + (string)dr["LastName"];
+                    names.Add(name);
                 }
 
                 return names.Count > 0 ? names : new List<string> { "No results where found." };

@@ -138,8 +138,13 @@ namespace Randomizer.Classes.Tests
         [TestMethod]
         public void GetRandomNamesValid()
         {
-            Assert.AreEqual(5, GetRandomNames("SP", 5).Count);
-            Assert.IsInstanceOfType(GetRandomNames("SP", 5), typeof(List<string>));
+            var result = GetRandomNames("SP", 5);
+            Assert.AreEqual(5, result.Count);
+            Assert.IsInstanceOfType(result, typeof(List<string>));
+            foreach (string name in result)
+            {
+                Assert.IsInstanceOfType(name, typeof(string));
+            }
         }
 
         [TestMethod]

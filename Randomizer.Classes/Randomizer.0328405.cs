@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
 using System.Text.Json;
+using System.Text.Json.Nodes;
+
 namespace Randomizer.Classes
 {
     public static partial class Randomizer
@@ -79,16 +81,16 @@ namespace Randomizer.Classes
             public double Latitude { get; set; }
         }
 
-        public static string GetRandomLocation()
+        public static Object GetRandomLocation()
         {
 
             var location = new Location
             {
-                Longitude = rng.NextDouble() * 180 - 90,
-                Latitude = rng.NextDouble() * 360 - 180
+                Latitude = rng.NextDouble() * 180 - 90,
+                Longitude = rng.NextDouble() * 360 - 180
             };
 
-            return JsonSerializer.Serialize(location);
+            return location;
         }
     }
 }

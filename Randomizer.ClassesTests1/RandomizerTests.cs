@@ -1,12 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text.Json;
-using System.Text.RegularExpressions;
-using static Randomizer.Classes.Randomizer;
-
-namespace Randomizer.Classes.Tests
+﻿namespace Randomizer.Classes.Tests
 {
     [TestClass]
     public class RandomizerTests
@@ -142,17 +134,16 @@ namespace Randomizer.Classes.Tests
         [TestMethod]
         public void TestGetRandomLocation()
         {
-            var owo = new Location
-            {
-                Longitude = rng.NextDouble() * 180 - 90,
-                Latitude = rng.NextDouble() * 360 - 180
-            };
+            var uwu = Randomizer.GetRandomLocation();
 
-            var randomLocation = GetRandomLocation();
-            var uwu = JsonSerializer.Deserialize<Location>(randomLocation);
+            var qwq = uwu.GetType().GetProperty("Latitude");
+            var pwp = uwu.GetType().GetProperty("Longitude");
 
-            Assert.IsTrue(uwu.Longitude is >= -90 and <= 90);
-            Assert.IsTrue(uwu.Latitude is >= -180 and <= 180);
+            var owo = (double)qwq.GetValue(uwu, null);
+            var cwc = (double)pwp.GetValue(uwu, null);
+
+            Assert.IsTrue(owo is >= -90 and <= 90);
+            Assert.IsTrue(cwc is >= -180 and <= 180);
         }
 
         /// <summary>Generate a random season 10 times and test if the random season is of the same enum type.</summary>
@@ -200,9 +191,9 @@ namespace Randomizer.Classes.Tests
         [TestMethod()]
         public void generatePasswordTest()
         {
-            var result = generatePassword(2, 4, 1, 0);
-            var uwu = Regex.Match(result, "^(?=.*[a-zA-Z])(?=.*[0-9])");
-            Assert.IsNotNull(uwu);
+            var result = Randomizer.generatePassword(2, 4, 1, 0);
+            var uwu = new Regex("^(?=.*[a-zA-Z])(?=.*[0-9])");
+            Assert.IsTrue(uwu.IsMatch(result));
         }
 
         [TestMethod]

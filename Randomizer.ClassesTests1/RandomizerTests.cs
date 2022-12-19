@@ -1,4 +1,11 @@
-﻿namespace Randomizer.Classes.Tests
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Text.RegularExpressions;
+using static Randomizer.Classes.Randomizer;
+
+namespace Randomizer.Classes.Tests
 {
     [TestClass]
     public class RandomizerTests

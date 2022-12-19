@@ -87,7 +87,7 @@ namespace Randomizer.Classes
                 throw new ArgumentException("No country was selected.");
             }
 
-            SqlConnection conn = new SqlConnection("Server=.;Database=RandomizerDB;Trusted_Connection=True;");
+            SqlConnection conn = new SqlConnection("Server=tcp:demoserver0331038.database.windows.net,1433;Initial Catalog=ProjectRandomizer;Persist Security Info=False;User ID=demoadmin;Password=Sch00l34&%$;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             try
             {
                 conn.Open();

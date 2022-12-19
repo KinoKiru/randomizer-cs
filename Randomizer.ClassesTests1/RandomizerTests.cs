@@ -1,4 +1,12 @@
-﻿namespace Randomizer.Classes.Tests
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Text.Json;
+using System.Text.RegularExpressions;
+using static Randomizer.Classes.Randomizer;
+
+namespace Randomizer.Classes.Tests
 {
     [TestClass]
     public class RandomizerTests
@@ -168,7 +176,7 @@
         [TestMethod]
         public void GetRandomColorTest()
         {
-            var owo = Randomizer.RandomColor(false);
+            var owo = RandomColor(false);
             Regex uwu = new Regex("^#(?:[0-9a-fA-F]{3}){1,2}$");
             Assert.IsTrue(uwu.IsMatch(owo));
 
@@ -177,7 +185,7 @@
         [TestMethod]
         public void GetRandomKnownColorTest()
         {
-            var owo = Randomizer.RandomColor(true);
+            var owo = RandomColor(true);
 
             Assert.IsTrue(Color.FromName(owo).IsKnownColor);
         }
@@ -185,28 +193,22 @@
         [TestMethod]
         public void GetRandomTekstTest()
         {
-            var owo = Randomizer.GenerateRandomText(1, false, false);
+            var owo = GenerateRandomText(1, false, false);
 
             Assert.IsTrue(owo is string);
         }
         [TestMethod()]
         public void generatePasswordTest()
         {
-            var result = Randomizer.generatePassword(2, 4, 1, 0);
-            var uwu = Regex.Matches(result, "^(?=.*[a-zA-Z])(?=.*[0-9])");
-            Assert.IsTrue(uwu);
+            var result = generatePassword(2, 4, 1, 0);
+            var uwu = Regex.Match(result, "^(?=.*[a-zA-Z])(?=.*[0-9])");
+            Assert.IsNotNull(uwu);
         }
-
-        //[TestMethod()]
-        //public void getImageTest()
-        //{
-        //    var owo = Randomizer.getImage(true, true);
-        //    var uwu = System.Text.Encoding.Default.GetString(owo);
 
         [TestMethod]
         public void GetRandomTekstTest2()
         {
-            var owo = Randomizer.GenerateRandomText(1, false, true);
+            var owo = GenerateRandomText(1, false, true);
 
             Assert.IsTrue(owo.Contains("<p>"));
         }

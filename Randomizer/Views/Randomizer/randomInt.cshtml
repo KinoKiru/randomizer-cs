@@ -22,7 +22,7 @@
     let form = document.forms["int"];
 
     function validate() {
-        $.get(`http://localhost:5298/int/${form['negative'].checked}`)
+        $.get(`https://projectrandomizerteambril.azurewebsites.net/int/${form['negative'].checked}`)
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);

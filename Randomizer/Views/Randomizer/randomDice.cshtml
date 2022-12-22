@@ -43,13 +43,13 @@
         } 
         else {
             if (form['amount'].value != "") {
-                $.get(`http://localhost:5298/random_dice/${form['amount'].value}`)
+                $.get(`https://projectrandomizerteambril.azurewebsites.net/random_dice/${form['amount'].value}`)
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);
                     }).catch((error) => $('#owo').text(error.statusText));
             } else {
-                $.get('http://localhost:5298/random_dice')
+                $.get('https://projectrandomizerteambril.azurewebsites.net/random_dice')
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);

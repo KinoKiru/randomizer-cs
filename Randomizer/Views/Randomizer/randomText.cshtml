@@ -50,13 +50,13 @@
         }
         else {
             if (form['amount'].value != "") {
-                $.get(`http://localhost:5298/random_text/${form['amount'].value}/${form["negative"].checked}/${form["negative1"].checked }`)
+                $.get(`https://projectrandomizerteambril.azurewebsites.net/random_text/${form['amount'].value}/${form["negative"].checked}/${form["negative1"].checked }`)
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);
                     }).catch((error) => $('#owo').text(error.statusText));
             } else {
-                $.get('http://localhost:5298/random_text')
+                $.get('https://projectrandomizerteambril.azurewebsites.net/random_text')
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);

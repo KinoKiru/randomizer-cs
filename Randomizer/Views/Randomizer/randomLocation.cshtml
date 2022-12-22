@@ -24,7 +24,7 @@
     let form = document.forms["location"];
 
     function validate() {
-        $.get(`http://localhost:5298/random_location`)
+        $.get(`https://projectrandomizerteambril.azurewebsites.net/random_location`)
             .done(function (data) {
                     $('#owo').text("latitude: " + data.value.latitude + " longitude: " + data.value.longitude);
                     $('#uwu').attr('src', `https://www.google.com/maps/embed/v1/place?key=AIzaSyD6w1gRct44p-imclQVW55W4G1Y_Ewl_9Y&q=${data.value.latitude},${data.value.longitude}`)

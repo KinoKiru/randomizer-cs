@@ -25,7 +25,7 @@
     let form = document.forms["card"];
 
     function validate() {
-        $.get(`http://localhost:5298/card/${form['jokers'].checked}`)
+        $.get(`https://projectrandomizerteambril.azurewebsites.net/card/${form['jokers'].checked}`)
             .done(function (data) {
                         $('#owo').removeClass('d-none')
                         $('#owo').attr("src", `data:image/png;base64,${data.value}`);

@@ -45,13 +45,13 @@
             return false;
         } else {
             if (form['end'].value != "" && form['start'].value != "") {
-                $.get(`http://localhost:5298/date/${form['start'].value}/${form['end'].value}`)
+                $.get(`https://projectrandomizerteambril.azurewebsites.net/date/${form['start'].value}/${form['end'].value}`)
                     .done(function (data) {
                         $('#owo').text(data.value);
                         console.log(data.value);
                     }).catch((error) => $('#owo').text(error.statusText));
             } else {
-                $.get('http://localhost:5298/date')
+                $.get('https://projectrandomizerteambril.azurewebsites.net/date')
                     .done(function (data) {
                         $('#owo').text(data.value);
                     console.log(data.value);

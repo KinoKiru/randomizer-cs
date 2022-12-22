@@ -23,7 +23,7 @@
     let form = document.forms["color"];
 
     function validate() {
-        $.get(`http://localhost:5298/random_color/${form['negative'].checked}`)
+        $.get(`https://projectrandomizerteambril.azurewebsites.net/random_color/${form['negative'].checked}`)
             .done(function (data) {
                 $('#uwu').css("backgroundColor", data.value);
                 $('#owo').text(data.value);

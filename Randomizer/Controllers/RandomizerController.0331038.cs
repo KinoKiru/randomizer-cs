@@ -56,7 +56,7 @@ namespace Randomizer.Controllers
             {
                 using (var response =
                            await httpClient.GetAsync(
-                               $"https://localhost:7298/random_firstnames/{boy}/{girl}/{amountOfNames}"))
+                               $"https://projectrandomizerteambril.azurewebsites.net/random_firstnames/{boy}/{girl}/{amountOfNames}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     var answer = JsonConvert.DeserializeObject<List<string>>(apiResponse);
@@ -177,7 +177,7 @@ namespace Randomizer.Controllers
                 using var httpClient = new HttpClient();
                 using var response =
                     await httpClient.GetAsync(
-                        $"https://localhost:7298/random_names/{country}/{amountOfNames}");
+                        $"https://projectrandomizerteambril.azurewebsites.net/random_names/{country}/{amountOfNames}");
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 names = JsonConvert.DeserializeObject<List<string>>(apiResponse);
                 ViewBag.AmountOfNames = amountOfNames;
@@ -209,7 +209,7 @@ namespace Randomizer.Controllers
                 using var httpClient = new HttpClient();
                 using var response =
                 await httpClient.GetAsync(
-                        $"https://localhost:7298/random_season/");
+                        $"https://projectrandomizerteambril.azurewebsites.net/random_season/");
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var season = JsonConvert.DeserializeObject<Seasons>(apiResponse);
                 ViewBag.Season = season;
@@ -245,7 +245,7 @@ namespace Randomizer.Controllers
                 using var httpClient = new HttpClient();
                 using var response =
                 await httpClient.GetAsync(
-                        $"https://localhost:7298/random_time/");
+                        $"https://projectrandomizerteambril.azurewebsites.net/random_time/");
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var time = JsonConvert.DeserializeObject<Time>(apiResponse);
                 ViewBag.Time = time;
